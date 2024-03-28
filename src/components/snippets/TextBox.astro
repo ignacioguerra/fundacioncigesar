@@ -1,0 +1,28 @@
+---
+---
+
+<div class="text-box">
+	<slot></slot>
+</div>
+
+<style is:global>
+	.text-box {
+		/* max-width: 680px; */
+		/* margin-left: auto;
+		margin-right: auto; */
+		& p, & li {
+			font-size: 1.25rem;
+			font-weight: var(--font-weight-light);
+			line-height: 1.75;
+			margin: 0 0 1em;
+			/* text-wrap: balance; */
+
+		}
+		& li {
+			margin-bottom: 0;
+		}
+		& strong, & b {
+			font-weight: var(--font-weight-medium);
+		}
+	}
+</style>

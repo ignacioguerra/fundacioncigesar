@@ -1,0 +1,48 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="image-slider__slide">
+	<svg class="image-slider__slide__placeholder" viewBox="0 0 800 600"></svg>
+	<img src={src} alt={alt} class="sc-map-position" />
+</div>
+<script>
+
+</script>
+<style>
+	.image-slider__slide {
+		--gap-space: var(--gap) * calc(var(--slides) - 1);
+		--slides-space: calc(100% - var(--gap-space));
+		--slide-width: calc(var(--slides-space) / var(--slides));
+		
+		display: block;
+		position: relative;
+		flex: 0 0 var(--slide-width);
+		scroll-snap-align: center;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+
+		&__placeholder {
+			display: block;
+		}
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% + 80px);
+			object-fit: cover;
+
+			--sc-map-position-from: -40px;
+			--sc-map-position-to: 40px;
+			transform: translateY(var(--sc-new-position));
+		}
+	}
+</style>

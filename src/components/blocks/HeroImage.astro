@@ -1,0 +1,77 @@
+---
+import ScrollContext from '../snippets/ScrollContext.astro';
+
+interface Props {
+	src?: string;
+	size?: 'full'|'big'|'medium'|'small';
+}
+
+const { src, size = 'big' } = Astro.props;
+---
+
+<div class:list={ [ 'hero-image', `hero-image--${size}` ] }>
+	<ScrollContext>
+		<svg class="hero-image__placeholder" viewBox="0 0 1000 1000"></svg>
+		{src && <img  class="hero-image__image sc-map-position" src={src} alt="">	}
+	</ScrollContext>
+	<div class="hero-image__content">
+		<div>
+			<slot></slot>
+		</div>
+	</div>
+</div>
+
+<style>
+	.hero-image {
+		position: relative;
+		overflow: hidden;
+
+		&__placeholder {
+			display: block;
+			width: 100%;
+		}
+
+		&--full &__placeholder {
+			height: calc(100vh - var(--header-height));
+		}
+		&--big &__placeholder {
+			height: calc(85vh - var(--header-height));
+		}
+		&--medium &__placeholder {
+			height: calc(60vh - var(--header-height));
+		}
+		&--small &__placeholder {
+			height: 280px;
+		}
+
+		&__image {
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: calc(100% + 200px);
+			object-fit: cover;
+			
+			--sc-map-position-from: -200px;
+			--sc-map-position-to: 0px;
+			transform: translate3d(0,var(--sc-new-position),0);
+			z-index: 1;
+		}
+
+		&__content {
+			display: flex;
+			justify-content: stretch;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 2;
+
+			> div {
+				flex: 1;
+			}
+		}
+	}
+</style>

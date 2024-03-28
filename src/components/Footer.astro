@@ -1,0 +1,148 @@
+---
+import SocialIconLinks from './SocialIconLinks.astro';
+import ContactData from './ContactData.astro';
+import mainMenu from '../constants/pages';
+
+const year = new Date().getFullYear()
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer__inner">
+			<div class="footer__logo">
+				<img src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/02/002-scaled-298x126.jpg" alt="Fundación Cigesar">
+			</div>
+			<section class="footer__contact-data">
+				<h3>Contactanos</h3>
+				<div class="footer__contact-data__info">
+					<ContactData />
+				</div>
+			</section>
+			<section class="footer__social-links">
+				<h3>Seguinos</h3>
+				<div class="footer__social-links__links">
+					<SocialIconLinks
+						instagram="https://www.instagram.com/fundacion.cigesar/"
+						facebook="https://www.facebook.com/Centro-Integral-de-Salud-Sexual-y-Reproductiva-376361479429154"
+						youtube="https://www.youtube.com/channel/UCgWxgJXBpjzVWy8JmQ2rpYA"
+						x="https://x.com/cigesar"
+					/>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="footer__small">
+		<div class="container">
+			<div class="footer__small__inner">
+				<div class="footer__small__copyright">
+					<p><small>Copyright © {year} | Fundacion CIGESAR</small></p>
+				</div>
+				<div class="footer__small__menu">
+					<ul>
+						{ 
+							mainMenu.map((menuItem) => {
+								const slug = menuItem.slug || ''
+								return <li><a href={slug}>{ menuItem.title }</a></li>
+							}) 
+						}
+					</ul>
+					<!-- <ul>
+						<li><a href="/">Nosotrxs</a></li>
+						<li><a href="#">Medios</a></li>
+						<li><a href="#">Contacto</a></li>
+					</ul> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<style>
+	.footer {
+		background-color: var(--white);
+		border-top: 1px solid var(--border-color);
+		padding: 1rem 0;
+
+		&__logo img {
+			display: block;
+			max-height: 200px;
+			width: auto;
+		}
+
+		&__contact-data {
+			flex: 1;
+			h3 {
+				position: absolute;
+				text-indent: -9999px;
+			}
+			&__info {
+				max-width: 400px;
+			}
+		}
+
+		&__social-links {
+			h3 {
+				font-size: 0.9375rem;
+				font-weight: var(--font-weight-regular);
+				text-align: right;
+				margin: 0;
+				margin-bottom: 0.25rem;
+			}
+			&__links {
+				color: var(--accent-color-1);
+			}
+		}	
+		
+		&__inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			padding: 3rem 0;
+			gap: 60px;
+			
+			/* height: 6rem; */
+		}
+
+		.logo img {
+			display: block;
+			height: 100%;
+		}
+
+		
+		&__small {
+			border-top: 1px solid var(--border-color);
+			
+			&__inner {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 1rem 0;
+			}
+
+			&__menu {
+				ul, li {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+				}
+				ul {
+					display: flex;
+					gap: 1rem;
+				}
+				a {
+					font-size: 0.875rem;
+					color: var(--gray-500);
+				}
+			}
+
+			&__copyright {
+				p {
+					margin: 0;
+				}
+				small {
+					font-size: 0.875rem;
+					color: var(--gray-500);
+				}
+			}
+		}
+	}
+</style>

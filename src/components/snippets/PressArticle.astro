@@ -1,0 +1,125 @@
+---
+import YoutubeModal from '../blocks/YoutubeModal.astro';
+import IconArrowRightCircle from '../icons/IconArrowRightCircle.astro';
+import IconYoutube from '../icons/IconYoutube.astro';
+import LinkButton from './LinkButton.astro';
+import ScrollContext from './ScrollContext.astro';
+
+interface Props {
+	title: string;
+	pictureUrl: string;
+	source?: string;
+	abstract?: string;
+	linkUrl?: string;
+	youtubeVideoId?: string;
+}
+
+const { title, pictureUrl, source, abstract, linkUrl, youtubeVideoId } = Astro.props;
+---
+
+<ScrollContext>
+	<article class="press-article sc-activable">
+		<div class="press-article__content">
+			<h2 class="press-article__title">{ title }</h2>
+			{ pictureUrl && <div class="press-article__picture sc-map-position"><img class="sc-map-position" src={ pictureUrl } alt=""></div> }
+			<div class="press-article__abstract">
+				<p>{ source && <b>{source}</b>}<span class="separator"> – </span>{ abstract }</p>
+			</div>
+			<div class="press-article__links">
+				{ linkUrl && <LinkButton text="Leer nota" href={linkUrl} external reversed><IconArrowRightCircle slot="right" /></LinkButton> }
+				{ youtubeVideoId && 
+						(<div class="press-article__video-launcher" data-youtube-modal-launcher={youtubeVideoId}>
+							<LinkButton text="Ver video" href={`https://www.youtube.com/watch?v=${youtubeVideoId}`} external><IconYoutube /></LinkButton>
+						</div> 
+						<YoutubeModal videoId={youtubeVideoId} />)
+				}
+			</div>
+		</div>
+	</article>
+</ScrollContext>
+<style is:global>
+	.press-article {
+		border: 1px solid var(--border-color);
+		padding: 3rem 4rem;
+		padding-left: calc(400px + 6rem);
+		position: relative;
+		min-height: calc(400px);
+
+		&__content {
+			max-width: 600px;
+			text-wrap: balance;
+			border-radius: var(--border-radius);
+		}
+
+		&__title {
+			font-size: 1.5rem;
+			margin: 1.5rem 0;
+			line-height: 1.375;
+			font-weight: var(--font-weight-bold);
+		}
+
+		&__abstract {
+			font-size: 1.125rem;
+			font-weight: var(--font-weight-light);
+			line-height: 1.375;
+
+			b {
+				font-weight: var(--font-weight-medium);
+			}
+		}
+
+		&__links {
+			margin-top: 3rem;
+		}
+
+		&__picture {
+			position: absolute;
+			top: 2rem;
+			left: 2rem;
+			width: 400px;
+			height: 400px;
+			overflow: hidden;
+			border-radius: var(--border-radius);
+			
+			--sc-map-position-from: 3rem;
+			--sc-map-position-to: -3rem;
+			transform: translate3d(0,var(--sc-new-position),0);
+
+			img {
+				display: block;
+				object-fit: cover;
+				width: 100%;
+				height: calc(100% + 8rem);
+				--sc-map-position-from: -4rem;
+				--sc-map-position-to: 4rem;
+				transform: translate3d(0,var(--sc-new-position),0);
+			}
+		}
+
+		&__video-launcher {
+			width: fit-content;
+		}
+
+		&__video {
+			display: none;
+		}
+
+		.separator:first-child {
+			display: none;
+		}
+
+		&.sc-was-active {
+			animation: article-in 700ms ease-in-out;
+			@keyframes article-in {
+				0%, 20% {
+					opacity: 0;
+					transform: translateY(3rem);
+				}
+				100% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+</style>

@@ -1,0 +1,95 @@
+---
+import IconClose from '../icons/IconClose.astro';
+import IconPlay from '../icons/IconPlay.astro';
+import ScrollContext from '../snippets/ScrollContext.astro';
+import YoutubeEmbed from './YoutubeEmbed.astro';
+
+interface Props {
+	videoId: string;
+	title?:string;
+	width?: number;
+	height?: number;
+}
+
+const { videoId, width=1920, height=1080, title } = Astro.props;
+---
+<youtube-modal class="yt-modal" video-id={videoId}>
+	<div class="container">
+		<div class="yt-modal__window">
+			<YoutubeEmbed videoId={videoId} title={title} width={width} height={height} />
+			<div class="yt-modal__close">
+				<IconClose>
+			</div>
+		</div>
+	</div>
+</youtube-modal>
+<script>
+	class YoutubeModal extends HTMLElement {
+		private _player:HTMLElement
+		constructor() {
+			super()
+			this._player = this.querySelector('youtube-embed')
+			
+			const videoId = this.getAttribute('video-id')
+			const launcher = document.querySelector(`[data-youtube-modal-launcher="${videoId}"] a, [data-youtube-modal-launcher="${videoId}"] button, [data-youtube-modal-launcher="${videoId}"]`)
+			
+			launcher.addEventListener('click', (e) => {
+				e.preventDefault()
+				e.stopPropagation()
+				this._open()
+			})
+
+			this.addEventListener('click', this._close.bind(this))
+		}
+		private _open() {
+			this._player.play()
+			document.body.style.overflow = 'hidden'
+			this.classList.toggle('active', true)
+		}
+		private _close() {
+			this._player.stop()
+			document.body.style.removeProperty('overflow')
+			this.classList.toggle('active', false)
+		}
+	}
+	customElements.define('youtube-modal', YoutubeModal)
+</script>
+<style>
+	.yt-modal {
+		position: fixed;
+		inset: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0,0,0,.35);
+		z-index: 9;
+		padding-top: var(--header-height);
+		display: none;
+
+		&.active {
+			display: flex;
+		}
+
+		&__window {
+			width: 1200px;
+			background-color: var(--white);
+			padding: 0.5rem;
+			box-shadow: 0 6px 18px -6px rgba(0,0,0,.35);
+			position: relative;
+		}
+
+		&__close {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			background-color: var(--white);
+			width: 36px;
+			height: 36px;
+
+			top: 0.5rem;
+			right: 0.5rem;
+			cursor: pointer;
+		}
+	}
+</style>

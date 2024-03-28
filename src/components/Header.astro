@@ -1,0 +1,209 @@
+---
+import mainMenu from '../constants/pages';
+import IconArrowDown from './icons/IconArrowDown.astro';
+
+interface Props {
+	// title?: string;
+	// body?: string;
+	// href?: string;
+}
+
+// const { href, title, body } = Astro.props;
+const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
+// const currentPath = pathname.slice(1);
+
+---
+
+<header class="header">
+	<div class="container">
+		<div class="header__inner">
+			<div class="logo">
+				<a href="/">
+					<img src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/02/002-scaled-298x126.jpg" alt="Fundación Cigesar">
+				</a>
+			</div>
+			<div class="main-menu">
+				<nav>
+					<ul class="main-menu__item-list">
+						{ 
+							mainMenu.map((menuItem) => {
+								const slug = menuItem.slug || ''
+								const isActive = Astro.url.pathname.startsWith(slug)
+								const withSubmenu = !!menuItem.submenu
+								return <li class:list={[ 
+									'main-menu__item', { 
+										'main-menu__item--active': isActive,
+										'main-menu__item--with-submenu': withSubmenu,
+									}]}>
+									<a class="main-menu__item__link" href={slug}>
+										{ menuItem.title }
+										{ withSubmenu && <IconArrowDown /> }
+									</a>
+									{ withSubmenu && <ul class="main-menu__submenu">{
+											menuItem.submenu.map((submenuItem) => {
+												const subItemSlug = submenuItem.slug || ''
+												const subItemIsActive = Astro.url.pathname.startsWith(subItemSlug)
+												return <li class:list={[
+													'main-menu__submenu__item', { 
+														'main-menu__submenu__item--active': subItemIsActive 
+													}]}><a class="main-menu__submenu__item__link" href={subItemSlug}>{ submenuItem.title }</a></li>
+											}) 
+										}</ul> }
+								</li>
+							}) 
+						}
+						<!-- <li><a href="#">Fundación Cigesar</a></li> -->
+						<!-- <li><a href="/nosotrxs">Nosotrxs</a></li>
+						<li>
+							<a href="/centro-de-salud-sexual-y-reproductiva">CISSYR</a>
+							<ul class="sub-menu">
+								<li><a href="/somos">Somos</a></li>
+								<li><a href="#">Servicios</a></li> -->
+								<!-- <li><a href="#">IVE</a></li>
+								<li><a href="#">Vasectomía</a></li>
+								<li><a href="#">Ginecología</a></li>
+								<li><a href="#">Obstetricia</a></li>
+								<li><a href="#">Psicología</a></li> -->
+								<!-- <li><a href="#">Contacto ES</a></li>
+								<li><a href="#">Contacto PR</a></li>
+							</ul>
+						</li>
+						<li><a href="/medios">Medios</a></li>
+						<li><a href="/contacto">Contacto</a></li> -->
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+<script>
+	const updateHeaderHeight = () => {
+		const header = document.querySelector('header.header')
+		document.body.style.setProperty('--header-height', `${header.clientHeight}px`)
+	}
+	document.addEventListener('DOMContentLoaded', updateHeaderHeight, { once: true })
+	document.addEventListener('load', updateHeaderHeight, { once: true })
+	updateHeaderHeight()
+</script>
+<style>
+	.header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		background-color: var(--white);
+		border-bottom: 1px solid var(--border-color);
+		/* paddi ng: 0 3rem; */
+		
+		&__inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: stretch;
+			height: 5.625rem;
+		}
+
+		.logo img {
+			display: block;
+			height: 100%;
+		}
+	}
+
+	.main-menu {
+		padding: 0.5rem 0;
+		align-self: center;
+
+		ul, li {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		&__item-list {
+			display: flex;
+			gap: 0.125rem;
+		}
+
+		&__item {
+			position: relative;
+
+			&__link {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				
+				padding: 0.5rem 0.75rem;
+				color: var(--black);
+				font-weight: 500;
+				text-decoration: none;
+				position: relative;
+
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					left: 0.625rem;
+					right: 0.625rem;
+					height: 4px;
+					bottom: 0.125rem;
+					background-color: transparent;
+					transition: background-color 200ms ease-out;
+				}
+			}
+			&:hover:not(&--active) &__link::after {
+				background-color: var(--border-color);
+			}
+			&--active &__link::after {
+				background-color: var(--page-primary-color);
+				animation: underline 300ms ease-out;
+			}
+			@keyframes underline {
+				from { transform: scaleX(0); }
+				to { transform: scaleX(1); }
+			}
+		}
+
+
+		&__submenu {
+			position: absolute;
+			background-color: var(--white);
+
+			display: none;
+			flex-direction: column;
+			min-width: max(100%, 180px);
+			padding: 1rem 0.5rem;
+			border-radius: 5px;
+			overflow: hidden;
+
+			box-shadow: 0 4px 12px -6px rgba(0,0,0,.65);
+
+			&__item {
+				position: relative;
+
+				&__link {
+					display: block;					
+					padding: 0.75rem 0.75rem;
+					color: var(--black);
+					font-weight: var(--font-weight-medium);
+					text-decoration: none;
+					position: relative;
+					transition: background-color 100ms ease-out;
+				}
+				&:not(&--active):hover &__link {
+					background-color: var(--border-color);
+				}
+				&--active &__link {
+					background-color: var(--page-primary-color);
+					color: var(--page-contrasting-color);
+				}
+			}
+		}
+
+		&__item--with-submenu:hover > &__submenu {
+			display: flex;
+			animation: submenu-in 200ms ease-in-out;
+		}
+		@keyframes submenu-in {
+			from { transform: translateX(0.5rem); opacity: 0; }
+			to { transform: translateX(0); opacity: 1; }
+		}
+	}
+</style>

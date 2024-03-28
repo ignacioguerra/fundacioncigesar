@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HighlightText from '../components/snippets/HighlightText.astro';
+import WaveSvg from '../components/graphics/WaveSvg.astro';
+import HeroImage from '../components/blocks/HeroImage.astro';
+import TextBox from '../components/snippets/TextBox.astro';
+import ScrollContext from '../components/snippets/ScrollContext.astro';
+import GallerySlider from '../components/blocks/GallerySlider.astro';
+import PageTitle from '../components/blocks/PageTitle.astro';
+import PressArticle from '../components/snippets/PressArticle.astro';
+import Profile from '../components/blocks/Profile.astro';
+import MethodListItem from '../components/MethodListItem.astro';
+---
+
+<Layout title="Métodos Anticonceptivos – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/CENTROINTEGRAL_BAJA_28-scaled.jpg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Métodos Anticonceptivos" />
+		</header>
+		<section class="light">
+			<div class="container">
+				<h2>¿Qué son los métodos anticonceptivos?</h2>
+				<TextBox>
+					<p>Los métodos Anticonceptivos son todos aquellos capaces de evitar o reducir las posibilidades de un embarazo. Te recomendamos que uses doble protección, el preservativo para prevenir Infecciones de Transmisión Sexual (ITS) y otro método para lograr mayor efectividad para evitar embarazos.</p>
+					<p>Elegí un método anticonceptivo, para vivir una sexualidad plena, segura y placentera.</p>
+				</TextBox>
+				<div class="methods">
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/preservativo-300x300.jpg" title="Preservativos Masculinos">
+						<p>Es el  único método que a la vez evita el embarazo y protege de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/preservativo-femenino-300x300.jpg" title="Preservativos Femeninos">
+						<p>Es el  único método que a la vez evita el embarazo y protege de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/elementor/thumbs/emergencia-pctfljsxkhycig8t9nfews1gen1y2cxmp21qkiyqf8.jpg" title="Anticoncepción Hormonal de Emergencia (AHE)">
+						<p>Conocida como  “la pastilla del día después”, se utiliza cuando falla alguno de los métodos anticonceptivos que están utilizando ,evita la ovulación y cuanto antes se tome mejor será su efectividad .En caso de que el embarazo ya se haya producido , la AHE no lo interrúmpe, es  decir no provoca un aborto.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/inyeccion-300x300.jpg" title="Inyecciones">
+						<p>Tienen hormonas que evitan la ovulación , son inyectables que se colocan una vez al mes y otros cada tres meses.Para que sea efectiva debe aplicarse siempre en la misma fecha. </p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/minipildoras-294x300.jpg" title="Pildoras">
+						<p>Si se toman todos los días en el mismo horario son muy efectivas para prevenir embarazos porque impiden la ovulación.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/anillo-300x300.jpg" title="Anillo">
+						<p>Es un anillo de plastico flexible de unos 5 cm de diámetro ,que colocado en la vagina libera hormonas en dosis bajas y constantes ,que impiden la ovulación.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/parche-300x300.jpg" title="Parche">
+						<p>Se puede usar sobre la piel del vientre, de los brazos, los glúteos o espalda. Debes colocar un parche nuevo cada semana durante tres semanas, este libera hormonas que se absorben por la piel y protegen contra el embarazo.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/diu-300x300.jpg" title="DIU">
+						<p>Es un pequeño dispositivo que se coloca dentro del utero, existen diferentes modelos, T cobre, Hormonal. Provoca cambios en el interior del utero que hacen que el espermatozoide no sea capaz de fecundar el ovulo.</p>
+						<p>Es efectivo durante cinco o diez anos según el modelo y puede ser retirado en cualquier momento que se desee.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/implante-300x300.jpg" title="Implante Subdérmico">
+						<p>Es una o dos varillas plásticas flexibles, que se coloca debajo de la piel en la cara interna  y superior del brazo libera una dosis bajas y regular de hormonas.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/ligadura-300x300.jpg" title="Ligadura Tubaria">
+						<p>Es un método Anticonceptivo definitivo e irreversible que se realiza a través de una cirugía en las trompas uterinas (las trompas son tubos pequeños que conectan al útero con los ovarios y permiten que el espermatozoide se junte con el ovulo) . Después de la ligadura se sigue ovulando y menstruando de manera habitual.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+					<MethodListItem imageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/vasectomia-295x300.jpg" title="Vasectomía">
+						<p>Es un metodo Anticonceptivo definitivo e irreversible , los conductos deferentes son los que transportan los espermatozoides de los testiculos al pene, estos conductos se cortan y ligan mediante una cirugía ambulatoria con anestesia local y sin bisturí.</p>
+						<p>No protegen de infecciones de transmisión sexual.</p>
+					</MethodListItem>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--gray-900);
+	}
+
+	.methods {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		margin-top: 6rem;
+	}
+
+	.press-articles {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		margin-bottom: 4rem;
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

@@ -1,0 +1,228 @@
+---
+import ScrollContext from "./snippets/ScrollContext.astro"
+
+
+
+const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
+---
+
+<div class="contact-form">
+	<form id="contact-form" class="contact-form__form" action="https://api.web3forms.com/submit" method="POST">
+		<input type="hidden" name="access_key" value={web3formsAccessKey}>
+		<input type="hidden" name="subject" value="Nuevo mensaje recibido" id="contact-subject">
+		<input type="hidden" name="from_name" value="Impronta - Contacto Web">
+		<ScrollContext>
+			<input class="sc-activable" placeholder="Nombre" type="text" name="full-name" id="contact-full-name" required>
+		</ScrollContext>
+		<ScrollContext>
+			<input class="sc-activable" placeholder="Teléfono" type="text" name="phone" id="contact-full-name">
+		</ScrollContext>
+		<ScrollContext>
+			<input class="sc-activable" placeholder="Correo electrónico" type="email" name="email" id="contact-email" required>
+		</ScrollContext>
+		<ScrollContext>
+			<textarea class="sc-activable" placeholder="Consulta" name="message" id="contact-message" rows="10"></textarea>
+		</ScrollContext>
+		<!-- <ScrollContext> -->
+			<!-- <div class="contact-form__captcha sc-activable h-captcha" data-captcha="true"></div> -->
+			<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+			<input type="hidden" name="from_url" value="" id="contact-from-url">
+		<!-- </ScrollContext> -->
+		<ScrollContext>
+			<div class="contact-form__send sc-activable">
+				<button class="contact-form__send__button sc-activable"><span>Enviar</span></button>
+				<p class="contact-form__send__feedback" id="contact-feedback"></p>
+			</div>
+		</ScrollContext>
+	</form>
+</div>
+<script src="https://web3forms.com/client/script.js" async defer></script>
+<script>
+	const form = document.getElementById('contact-form')
+	const formResult = document.getElementById('contact-feedback')
+	const fieldFromUrl = document.getElementById('contact-from-url')
+	
+	form.addEventListener('submit', function(e) {
+		e.preventDefault()
+		fieldFromUrl.value = window.location.origin
+		const formData = new FormData(form)
+		const object = Object.fromEntries(formData)
+		object['subject'] = `Nuevo mensaje de ${object['full-name']}`
+		const json = JSON.stringify(object)
+
+		const linkMailto = document.createElement('a')
+		const email = ['contacto','@','improntacomunicacion.ar',].join()
+		linkMailto.href = `mailto:${email}?subject=${encodeURI(object['subject'])}&body=${encodeURI(object['message'])}`
+		linkMailto.textContent = email
+
+		formResult.textContent = "Enviando..."
+	
+		fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+				headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: json
+		})
+		.then(async (response) => {
+			let json = await response.json()
+			if (response.status == 200) {
+				form.reset()
+				formResult.textContent = 'Mensaje enviado.'
+				setTimeout(() => {
+					formResult.textContent = ''
+				}, 6000)
+			} else {
+				// console.log(response)
+				// formResult?.textContent = json.message
+				formResult.textContent = 'Error al enviar el mensaje. Intente nuevamente o escríbanos a '
+				formResult.append(linkMailto)
+			}
+		})
+		.catch(error => {
+			// console.log(error)
+			formResult.textContent = 'Error al enviar el mensaje. Intente nuevamente o escríbanos a '
+			formResult.append(linkMailto)
+		})
+		// .then(function() {
+		// 	setTimeout(() => {
+		// 		formResult.innerHTML = ''
+		// 	}, 3000)
+		// })
+	})
+	</script>
+
+<style>
+	.contact-form {
+		&__form {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5625rem;
+
+			@media screen and (max-width: 1399px) {
+			}
+			@media screen and (max-width: 1199px) {
+			}
+			@media screen and (max-width: 767px) {
+			}
+			@media screen and (max-width: 575px) {
+				gap: 1.0625rem;
+			}
+		}
+		input, textarea, button, &__captcha {
+			opacity: 0;
+			transform: translateY(50px);
+			&.sc-was-active {
+				transition: opacity 800ms ease-in-out, transform 800ms ease-out;
+				opacity: 1;
+				transform: none;
+			}
+		}
+		
+		input, textarea, button {
+			display: block;
+			width: 100%;
+			font-family: var(--font-fammily);
+			font-size: 1.25rem;
+			font-weight: var(--font-weight-light);
+			/* color: var(--page-primary-color); */
+			padding: 0.625em 1.5625rem;
+			margin: 0;
+			border: 1px solid var(--page-primary-color);
+			background-color: var(--color-light);
+
+			&::placeholder {
+				opacity: 1;
+			}
+			
+			@media screen and (max-width: 1399px) {
+				font-size: 1.0625rem;
+			}
+			@media screen and (max-width: 1199px) {
+				font-size: 1.1875rem;
+			}
+			@media screen and (max-width: 767px) {
+				font-size: 1rem;
+			}
+			@media screen and (max-width: 575px) {
+				font-size: 0.8125rem;
+				padding: 0.625em 1.0625rem;
+			}
+		}
+		textarea {
+			resize: vertical;
+		}
+
+		&__send {
+			display: flex;
+			gap: 1.5625rem;
+			align-items: center;
+			& &__button {
+				background-color: var(--color-accent-1);
+				color: var(--color-white);
+				width: auto;
+				min-width: 25%;
+				cursor: pointer;
+				position: relative;
+				
+				span {
+					position: relative;
+				}
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background-color: var(--color-white);
+					z-index: 0;
+					opacity: 0;
+					transform: translateY(-0.5rem) scaleY(.25);
+					transition: transform 100ms ease-out, opacity 100ms ease-out;
+				}
+				&:hover {
+					/* color: var(--color-black); */
+					&::before {
+						animation: background-in 200ms ease-out;
+						opacity: 1;
+						transform: none;
+					}
+					@keyframes background-in {
+						from { transform: translateY(0.5rem) scaleY(.25); opacity: 0; filter: blurY(10px); }
+						50% {  transform: translateY(0.25rem); opacity: 1; }
+						to { transform: none; }
+					}
+					span {
+						color: var(--color-accent-1);
+					}
+				}
+			}
+			&__feedback {
+				color: var(--color-accent-1);
+				margin: 0;
+				&:empty {
+					display: none;
+				}
+				a {
+					color: inherit;
+				}
+				@media screen and (max-width: 1399px) {
+					font-size: 1.0625rem;
+				}
+				@media screen and (max-width: 1199px) {
+					font-size: 1.1875rem;
+				}
+				@media screen and (max-width: 767px) {
+					font-size: 1rem;
+				}
+				@media screen and (max-width: 575px) {
+					font-size: 0.8125rem;
+				}
+			}
+		}
+	}
+</style>

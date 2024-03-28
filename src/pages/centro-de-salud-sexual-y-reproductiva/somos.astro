@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HighlightText from '../../components/snippets/HighlightText.astro';
+import WaveSvg from '../../components/graphics/WaveSvg.astro';
+import HeroImage from '../../components/blocks/HeroImage.astro';
+import TextBox from '../../components/snippets/TextBox.astro';
+import ScrollContext from '../../components/snippets/ScrollContext.astro';
+import GallerySlider from '../../components/blocks/GallerySlider.astro';
+import PageTitle from '../../components/blocks/PageTitle.astro';
+import PressArticle from '../../components/snippets/PressArticle.astro';
+import Profile from '../../components/blocks/Profile.astro';
+import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
+import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
+import TextCard from '../../components/snippets/TextCard.astro';
+import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
+import IconGallery from '../../components/icons/IconGallery.astro';
+import IconInfo from '../../components/icons/IconInfo.astro';
+import IconQuote from '../../components/icons/IconQuote.astro';
+import LinkButton from '../../components/snippets/LinkButton.astro';
+import MiniCollage from '../../components/snippets/MiniCollage.astro';
+import InnerMenu from '../../components/InnerMenu.astro';
+import { cissyrMenu, mainMenu } from "../../constants/pages";
+
+const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
+---
+
+<Layout title="Somos – Centro Integral de salud sexual y reproductiva – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/CENTROINTEGRAL_BAJA_60-scaled-e1630628688860.jpg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Somos" backTo={parentPage} />
+			<div class="container">
+				<InnerMenu menu={cissyrMenu} />
+			</div>
+		</header>
+
+		<section class="light -no-gap">
+			<div class="container">
+				<div class="image-with-text">
+					<div class="image-with-text__text">
+						<TextBox>
+							<div class="text-with-iamge__text">
+								<p>Somos una organización Argentina con alcance latinoamericano, creada en 2015, a cargo del Dr. Levy Damián, brindando salud integral y garantizando los derechos de salud sexual y reproductivos; trabajando para asegurar que la atención del aborto sea seguro, legal y accesible para todas las mujeres y personas gestantes; creando conciencia sobre el impacto del aborto seguro en la salud publica y la justicia social.</p>
+								<p>En el marco de la ley 27.610 la implementación de la INTERRUPCIÓN VOLUNTARIA DEL EMBARAZO (IVE); nos permite como institución continuar garantizando practicas seguras, acceso a métodos anticonceptivos e implementar la EDUCACION SEXUAL INTEGRAL (ESI), por consiguiente generando una disminución de la morbimortalidad y promoviendo el acceso a los derechos sexuales y reproductivos y no reproductivos de las personas.</p>
+							</div>
+						</TextBox>
+					</div>
+					<div class="image-with-text__image">
+						<MiniCollage
+							smallImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5693-scaled-e1663847661632-768x1152.jpg"
+							bigImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/CENTROINTEGRAL_BAJA_29-scaled-e1630628784272.jpg"
+							invert
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--white);
+	}
+
+
+	.image-with-text {
+		display: flex;
+		padding: 2rem 0 3rem;
+		gap: 80px;
+		&__image {
+			flex: 1;
+		}
+		&__text {
+			flex: 1;
+			position: relative;
+			/* display: flex;
+			flex-direction: column;
+			justify-content: flex-start; */
+			position: relative;
+			h2 {
+				font-size: 2.75rem;
+				line-height: 1.125;
+				text-wrap: balance;
+				/* text-align: right; */
+				margin: 6rem 0 0;
+			}
+
+			&__link {
+				position: absolute;
+				top: 50%;
+				left: 3rem;
+			}
+		}
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

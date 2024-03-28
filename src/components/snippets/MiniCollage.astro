@@ -1,0 +1,83 @@
+---
+import ScrollContext from './ScrollContext.astro';
+import ParallaxImage from './ParallaxImage.astro';
+
+interface ImageData {
+	src: string;
+	alt: string;
+}
+
+interface Props {
+	bigImageUrl:string;
+	smallImageUrl:string;
+	bigImageAlt?:string;
+	smallImageAlt?:string;
+	invert?:boolean;
+}
+
+const { bigImageUrl, smallImageUrl, bigImageAlt='', smallImageAlt='', invert=false } = Astro.props;
+
+---
+
+<ScrollContext>
+	<div class:list={ [ 'mini-collage', 'sc-map-position', {'mini-collage--inverted': invert} ] }>
+		<div class="mini-collage__image sc-map-position">
+			<ParallaxImage src={bigImageUrl} alt={bigImageAlt} width={500} height={600}>
+		</div>
+		<div class="mini-collage__image sc-map-position">
+			<ParallaxImage src={smallImageUrl} alt={smallImageAlt} width={500} height={600}>
+		</div>
+	</div>
+</ScrollContext>
+
+<style>
+	.mini-collage {
+		display: flex;
+		align-items: flex-end;
+		/* width: 680px; */
+
+		--sc-map-position-from: -2rem;
+		--sc-map-position-to: 2rem;
+		transform: translate3d(0,var(--sc-new-position),0);
+
+		&__image {
+			flex: 7;
+			&:first-child {
+				margin-bottom: 3rem;
+				--sc-map-position-from: 6.5rem;
+				--sc-map-position-to: 1.5rem;
+				clip-path: polygon(0 0, 100% 0, 100% calc(42.5% + var(--sc-new-position)), calc(100% - 8.5rem) calc(42.5% + var(--sc-new-position)), calc(100% - 8.5rem) 100%, 0 100%);
+			}
+			&:last-child {
+				flex: 4;
+				margin-left: -8rem;
+				/* border-left: 0.5rem solid var(--gray-100);
+				border-top: 0.5rem solid var(--gray-100); */
+				position: relative;
+				z-index: 1;
+
+				--sc-map-position-from: 4rem;
+				--sc-map-position-to: -1rem;
+				transform: translate3d(0,var(--sc-new-position),0);
+			}
+		}
+
+		&--inverted {
+			flex-direction: row-reverse;
+		}
+
+		&--inverted	&__image {
+			&:first-child {
+				clip-path: polygon(0 0, 100% 0, 100% 100%, 8.5rem 100%, 8.5rem calc(42.5% + var(--sc-new-position)), 0 calc(42.5% + var(--sc-new-position)));
+				
+				
+				
+				
+			}
+			&:last-child {
+				margin-left: 0;
+				margin-right: -8rem;
+			}
+	}
+	}
+</style>

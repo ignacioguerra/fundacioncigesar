@@ -1,0 +1,52 @@
+---
+import ScrollContext from '../snippets/ScrollContext.astro';
+
+interface Props {
+	videoId: string;
+	title?:string;
+	width: number;
+	height: number;
+}
+
+const { videoId, width, height, title } = Astro.props;
+const embedUrl = `https://www.youtube.com/embed/${videoId}?controls=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=${videoId}`;
+const placeholderSize = `0 0 ${width} ${height}`;
+---
+
+<ScrollContext>
+	<div class="yt-embed" video-url={embedUrl}>
+		<svg class="yt-embed__placeholder" viewBox={placeholderSize}></svg>
+		<iframe class="yt-embed__player sc-map-position" src={embedUrl} width={width} height={height} title={title} 
+			frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+		</iframe>
+	</div>
+</ScrollContext>
+<style>
+	.yt-embed {
+		display: block;
+		position: relative;
+		overflow: hidden;
+		border-radius: var(--border-radius);
+		pointer-events: none;
+
+		&__placeholder {
+			display: block;
+		}
+
+		&__player {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			z-index: 2;
+
+			--sc-map-position-from: -20vh;
+			--sc-map-position-to: 20vh;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+	}
+</style>

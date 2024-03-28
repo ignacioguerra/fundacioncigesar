@@ -1,0 +1,347 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HighlightText from '../../components/snippets/HighlightText.astro';
+import WaveSvg from '../../components/graphics/WaveSvg.astro';
+import HeroImage from '../../components/blocks/HeroImage.astro';
+import TextBox from '../../components/snippets/TextBox.astro';
+import ScrollContext from '../../components/snippets/ScrollContext.astro';
+import GallerySlider from '../../components/blocks/GallerySlider.astro';
+import PageTitle from '../../components/blocks/PageTitle.astro';
+import PressArticle from '../../components/snippets/PressArticle.astro';
+import Profile from '../../components/blocks/Profile.astro';
+import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
+import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
+import TextCard from '../../components/snippets/TextCard.astro';
+import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
+import IconGallery from '../../components/icons/IconGallery.astro';
+import IconInfo from '../../components/icons/IconInfo.astro';
+import IconQuote from '../../components/icons/IconQuote.astro';
+import LinkButton from '../../components/snippets/LinkButton.astro';
+import InnerMenu from '../../components/InnerMenu.astro';
+import { cissyrMenu, mainMenu } from "../../constants/pages";
+
+const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
+---
+
+<Layout title="Servicios – Centro Integral de salud sexual y reproductiva – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_3-scaled.jpg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Servicios" backTo={parentPage} />
+			<div class="container">
+				<InnerMenu menu={cissyrMenu} />
+			</div>
+		</header>
+
+		<section class="light -no-gap">
+			<div class="container">
+				<div class="services">
+					<!-- <a href="/ive">
+					</a>
+					<a href="/centro-de-salud-sexual-y-reproductiva/servicios/vasectomia">
+					</a> -->
+					<h2 class="services__tab" id="ive">IVE</h2>
+					<div class="services__tab-content">
+						<ScrollContext>
+							<div class="services__tab-content__inner">
+								<div class="services__tab-content__image">
+									<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5788-scaled.jpg" alt="" width={260} height={346} />
+								</div>
+								<div class="services__tab-content__text">
+									<TextBox>
+										<ul>
+											<li>Tratamientos avalados por su seguridad y eficacia, recomendados por la Organización Mundial de la Salud.</li>
+											<li>Acompañamiento telefónico 24 horas para la atención de eventuales complicaciones.</li>
+											<li>Control médico dos semanas después de iniciado el tratamiento.</li>
+											<li>Elección de un método anticonceptivo post tratamiento sin costo adicional, para vivir una sexualidad plena, segura y placentera.</li>
+											<li>Un equipo profesional en permanente actualización clínica en el manejo de las técnicas más avanzadas para la atención de IVE.</li>
+										</ul>
+									</TextBox>
+									<LinkButton style="page-color" text="Conocé más sobre Interrupción Voluntaria del Embarazo" href="/ive"><IconInfo /></LinkButton>
+								</div>
+							</div>
+						</ScrollContext>
+					</div>
+					<h2 class="services__tab" id="vasectomia">Vasectomia</h2>
+					<div class="services__tab-content">
+						<ScrollContext>
+							<div class="services__tab-content__inner">
+								<div class="services__tab-content__image">
+									<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/CENTROINTEGRAL_BAJA_28-scaled.jpg" alt="" width={260} height={346} />
+								</div>
+								<div class="services__tab-content__text">
+									<TextBox>
+										<p>La vasectomía  es un método anticonceptivo definitivo e irreversibles, los conductos deferentes son los que transportan los espermatozoides de los testículos al pene, estos conductos se cortan y ligan mediante una  una cirugía ambulatoria, de 30 minutos de duración aproximadamente , con anestesia local y sin bisturí.</p>
+										<p>No requiere internación y su recuperación es de 2 a 7 días. La eyaculación sigue siendo normal, textura, color y cantidad, pero el semen ya no tiene espermatozoides, por lo tanto no hay riesgo de embarazo.</p>
+									</TextBox>
+								</div>
+							</div>
+						</ScrollContext>
+					</div>
+					<h2 class="services__tab" id="ginecologia">Ginecologia</h2>
+					<div class="services__tab-content">
+						<ScrollContext>
+							<div class="services__tab-content__inner">
+								<div class="services__tab-content__image">
+									<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_3-scaled.jpg" alt="" width={260} height={346} />
+								</div>
+								<div class="services__tab-content__text">
+									<TextBox>
+										<ul>
+											<li>Papanicolau</li>
+											<li>Colposcopia</li>
+											<li>Examen mamario</li>
+											<li>Asesoramiento en</li>
+											<li>métodos anticonceptivos</li>
+											<li>Detección de enfermedades de transmisión sexual</li>
+											<li>Niñez y adolescencia</li>
+											<li>Menopausia y climaterio</li>
+										</ul>
+									</TextBox>
+								</div>
+							</div>
+						</ScrollContext>
+					</div>
+					<h2 class="services__tab" id="obstetricia">Obstetricia</h2>
+					<div class="services__tab-content">
+						<ScrollContext>
+							<div class="services__tab-content__inner">
+								<div class="services__tab-content__image">
+									<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_4-scaled.jpg" alt="" width={260} height={346} />
+								</div>
+								<div class="services__tab-content__text">
+									<TextBox>
+										<ul>
+											<li>Parto respetado</li>
+											<li>Curso preparto</li>
+											<li>Estudio integral de la mujer en el puerperio (lactancia y elección del método anticonceptivo)</li>
+										</li>
+										</ul>
+									</TextBox>
+								</div>
+							</div>
+						</ScrollContext>
+					</div>
+					<h2 class="services__tab" id="psicologia">Psicología</h2>
+					<div class="services__tab-content">
+						<ScrollContext>
+							<div class="services__tab-content__inner">
+								<div class="services__tab-content__image">
+									<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_41-scaled.jpg" alt="" width={260} height={346} />
+								</div>
+								<div class="services__tab-content__text">
+									<TextBox>
+										<ul>
+											<li>Psicóloga en perspectiva de género</li>
+											<li>Sexologa clínica</li>
+										</ul>
+									</TextBox>
+								</div>
+							</div>
+						</ScrollContext>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</main>
+	<Footer />
+</Layout>
+<script>
+	const tabs = document.querySelectorAll('.services__tab')
+	if(window.location.hash) {
+		document.addEventListener('DOMContentLoaded', () => {
+			const currentTab = document.querySelector(window.location.hash)
+			currentTab.classList.add('current')
+			window.scrollTo({top:0})
+		}, {once: true})
+	} else {
+		const currentTab = tabs[0]
+		currentTab.classList.add('current')
+	}
+	tabs.forEach((tab) => {
+		tab.addEventListener('click', (e) => {
+			tabs.forEach((otherTab) => {
+				window.history.pushState('','',`#${tab.id}`);
+				otherTab.classList.toggle('current', tab === otherTab)
+			})
+		})
+	})
+</script>
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--white);
+	}
+
+	.services {
+		display: grid;
+		/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: 2;
+		grid-template-areas: 
+			"tab-1 tab-2 tab-3 tab-4 tab-5"
+			"tab-content tab-content tab-content tab-content tab-content";
+		/* gap: 0; */
+		gap: 0.75rem;
+		align-items: start;
+
+		&__tab {
+			flex: 1;
+			/* margin: 0 8px; */
+
+			/* &:first-child {
+				margin-left: 1.75rem;
+			}
+
+			&:last-child {
+				margin-right: 1.75rem;
+			} */
+
+			
+
+			padding: 1.25rem 1.5rem;
+			/* height: 300px; */
+			background-color: var(--white);
+			border-radius: 0;
+			border-bottom-left-radius: 0;
+			border-bottom-right-radius: 0;
+			border:1px solid var(--page-primary-color);
+			/* margin-bottom: 1rem; */
+			position: relative;
+			z-index: 2;
+			margin: 0;
+
+			cursor: pointer;
+			
+			&.current {
+				border-bottom-color: var(--white);
+				background-color: var(--page-primary-color);
+				color: var(--page-contrasting-color);
+				font-weight: var(--font-weight-medium);
+				
+				/* transform: translateY(1.5rem); */
+
+					font-size: 1.5rem;
+					cursor: auto;
+			}
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+			line-height: 1;
+
+		/* &__title { */
+			font-size: 1.25rem;
+			font-weight: var(--font-weight-light);
+			/* margin: 0; */
+		/* } */
+		}
+
+		
+
+		
+		&__tab-content {
+				position: relative;
+				z-index: 0;
+			grid-area: tab-content;
+			border: 1px solid var(--accent-color-1);
+			border-color: var(--page-primary-color);
+			border-bottom-width: 5px;
+			border-radius: 6px;
+			background-color: var(--white);
+
+			&__inner {
+				display: flex;
+				gap: 3rem;
+				padding: 2rem 4rem 2rem 2rem;
+				align-items: center;
+			}
+
+			&__image {
+				flex-basis: 360px;
+				/* transform: translateY(2rem); */
+				/* flex: 1; */
+			}
+
+			&__text {
+				flex: 1;
+				/* padding: 4rem 4rem 4rem; */
+			}
+			/* box-shadow: 0 4px 24px -8px rgba(0,0,0,.15); */
+
+			opacity: 0;
+		}
+
+		&__tab.current + &__tab-content {
+			z-index: 1;
+			opacity: 1;
+			animation: fade-in 400ms ease-out;
+		}
+
+		@keyframes fade-in {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+	}
+
+
+	.image-with-text {
+		display: flex;
+		padding: 2rem 0 3rem;
+		gap: 80px;
+		&__image {
+			flex: 1;
+		}
+		&__text {
+			flex: 1;
+			position: relative;
+			/* display: flex;
+			flex-direction: column;
+			justify-content: flex-start; */
+			position: relative;
+			h2 {
+				font-size: 2.75rem;
+				line-height: 1.125;
+				text-wrap: balance;
+				/* text-align: right; */
+				margin: 6rem 0 0;
+			}
+
+			&__link {
+				position: absolute;
+				top: 50%;
+				left: 3rem;
+			}
+		}
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

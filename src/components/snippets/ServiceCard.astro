@@ -1,0 +1,50 @@
+---
+import IconInfo from '../icons/IconInfo.astro';
+import LinkButton from './LinkButton.astro';
+
+interface Props {
+	title:string;
+	description?:string;
+	linkUrl?:string;
+}
+
+const { title, description, linkUrl } = Astro.props;
+
+---
+
+<article class="service-card">
+	<h3 class="service-card__title">{ title }</h3>
+	{ description && <p class="service-card__description">{ description }</p> }
+	{ linkUrl && <LinkButton style="page-color" text="Más información" href={linkUrl}><IconInfo /></LinkButton> }
+</article>
+
+
+<style>
+	.service-card {
+		flex: 1;
+		border:1px solid var(--page-primary-color);
+		border-bottom-width: 5px;
+		padding: 3rem 1.5rem;
+		/* height: 300px; */
+		background-color: var(--white);
+		border-radius: 5px;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		line-height: 1;
+
+		&__title {
+			font-size: 3.25rem;
+			font-weight: var(--font-weight-medium);
+			margin: 0;
+		}
+		&__description {
+			font-size: 1.5rem;
+			font-weight: var(--font-weight-light);
+			margin: 0 0 1.5rem;
+		}
+	}
+</style>

@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import YoutubeVideoLauncher from '../components/snippets/YoutubeVideoLauncher.astro';
+import WaveSvg from '../components/graphics/WaveSvg.astro';
+import HeroImage from '../components/blocks/HeroImage.astro';
+import TextBox from '../components/snippets/TextBox.astro';
+import ScrollContext from '../components/snippets/ScrollContext.astro';
+import GallerySlider from '../components/blocks/GallerySlider.astro';
+import YoutubeBackground from '../components/blocks/YoutubeBackground.astro';
+---
+
+<Layout title="Fundacion Cigesar – Aborto, IVE, Interrupción voluntaria del embarazo , Latinoamerica">
+	<Header />
+	<main>
+		<section class="no-gap">
+			<HeroImage>
+				<!-- <div class="container">
+
+					<YoutubeVideoLauncher videoId="BzQ1tPZrXVg" mainText="Polo comunitario" description="Ver video" />
+				</div> -->
+				<YoutubeBackground videoId="E01K6Ub7GSQ" width={560} height={315} title="Presentación CIGESAR" />
+				<WaveSvg />
+			</HeroImage>
+			<!-- <div class="youtube-video-modal">
+				<div class="youtube-video-modal__container">
+					<YoutubeBackground videoId="BzQ1tPZrXVg" poster="home/poster-polo.png"  width={560} height={315} />
+				</div>
+			</div> -->
+		</section>
+		<section class="light text-with-iamge ---overlap">
+			<div class="container">
+				<TextBox>
+					<div class="main-text">
+						<p>Nuestro plan estratégico tiene como prioridad el abordaje de los derechos sexuales y (no) reproductivos de las personas, abordándolos desde todas sus dimensiones, de manera integral con el objetivo de lograr el pleno acceso de las mujeres y diversidades sexuales a sus decisiones reproductivas, para que fundamentalmente sean libres de elección en la maternidad, libres de buscar una vida sexual sin temores a embarazos no intencionales y a infecciones de transmisión sexual (ITS).</p>
+						<p>Nuestra Fundación tiene una amplia experiencia en el desarrollo de estrategias pedagógicas e intervenciones interdisciplinarias, desde una perspectiva de género y de cuidado. Desarrollamos proyectos junto con organizaciones públicas o privadas capacitando a educadores, educadoras y promotoras comunitarias en educación sexual integral y salud sexual.</p>
+					</div>
+				</TextBox>
+				<!-- <div class="text-with-iamge__inner">
+					<div>
+						<TextBox>
+							<div class="text-with-iamge__text">
+								<p>Nuestro plan estratégico tiene como prioridad el abordaje de los derechos sexuales y (no) reproductivos de las personas, abordándolos desde todas sus dimensiones, de manera integral con el objetivo de lograr el pleno acceso de las mujeres y diversidades sexuales a sus decisiones reproductivas, para que fundamentalmente sean libres de elección en la maternidad, libres de buscar una vida sexual sin temores a embarazos no intencionales y a infecciones de transmisión sexual (ITS).</p>
+								<p>Nuestra Fundación tiene una amplia experiencia en el desarrollo de estrategias pedagógicas e intervenciones interdisciplinarias, desde una perspectiva de género y de cuidado. Desarrollamos proyectos junto con organizaciones públicas o privadas capacitando a educadores, educadoras y promotoras comunitarias en educación sexual integral y salud sexual.</p>
+							</div>
+						</TextBox>
+					</div>
+					<div>
+						<ScrollContext>
+							<img src="favicon.svg" alt="" class="sc-map-position" />
+						</ScrollContext>
+					</div>
+				</div> -->
+			</div>
+		</section>
+		<section class="">
+			<div class="container">
+				<GallerySlider 
+					title='Encuentros de formación en herramientas para el trabajo de derechos sexuales, reproductivos y no reproductivos'
+					images={[
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.23-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.23-2-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.23-1-1-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.34-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.51-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.26-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.30-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.25-2-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.45.25-3-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.26-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.25-1-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.25-2-768x512.jpeg', alt:'' },
+						{ src:'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/WhatsApp-Image-2022-01-03-at-11.40.24-768x512.jpeg', alt:'' },
+					]}
+					alignRight
+				/>
+			</div>
+		</section>
+		<section class="overlap">
+			<div class="container">
+				<GallerySlider 
+					title='Formación y capacitación en Ley IVE'
+					images={[
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/06-768x524.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/05-768x524.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/08-768x523.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/04-768x522.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/02-768x525.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/03-768x523.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/07-768x525.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/09-768x523.jpg', alt: '' },
+						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2022/01/01-768x524.jpeg', alt: '' },
+					]}
+				/>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+
+	.main-text {
+		margin: 2rem 0;
+		column-count: 2;
+		gap: 3rem;
+	}
+
+	.youtube-video-modal {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 50;
+		background-color: rgba(0,0,0,.8);
+		/* backdrop-filter: blur(6px); */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-top: var(--header-height);
+
+		/* border-top: 80px solid var(--gray-900); */
+		/* border-bottom: 80px solid var(--gray-900); */
+
+		&__container {
+			flex: 1; 
+			max-width: 1200px;
+			/* max-height: 90vh; */
+			box-shadow: 0 8px 16px rgba(0,0,0,.65);
+			overflow: hidden;
+		}
+	}
+
+	.text-with-iamge {
+		overflow: hidden;
+		img {
+			/* position: absolute; */
+			z-index: 1;
+			/* opacity: 0.25; */
+			width: auto;
+			display: block;
+			margin: 0 auto;
+			/* height: calc(100% + 200px); */
+
+			/* --to-y: 20px;
+			--from-y: 150px;
+			--translate-y: calc(var(--from-y) + var(--sc-position) * (var(--to-y) - var(--from-y))); */
+
+			--sc-map-position-from: 150px;
+			--sc-map-position-to: 20px;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+
+		&__text {
+			/* position: relative; */
+			z-index: 2;
+			/* transform: translateX(5rem); */
+			/* background: white; */
+		}
+
+		&__inner {
+			display: flex;
+			gap: 80px;
+
+			> div {
+				flex: 1;
+			}
+		}
+	}
+</style>

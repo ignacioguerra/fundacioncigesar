@@ -1,0 +1,66 @@
+---
+interface Props {
+}
+---
+
+<scroll-context>
+	<slot></slot>
+</scroll-context>
+
+<script>
+	class ScrollContext extends HTMLElement {
+		private _activableItems:Array<any>
+
+		constructor() {
+			super()
+			this._activableItems = this._getScopedActivableItems()
+			document.addEventListener('scroll',this.update.bind(this), { passive: true })
+			document.addEventListener('DOMContentLoaded',this.update.bind(this), { once: true })
+			document.addEventListener('load',this.update.bind(this), { once: true })
+			this.update()
+		}
+		get isVisible() {
+			var boundingRect = this.getBoundingClientRect()
+			return boundingRect.top < window.innerHeight && boundingRect.bottom > 0
+		}
+		private _getScopedActivableItems() {
+			const innerScrollContext = this.querySelectorAll('scroll-context')
+			const activableItems = [...this.querySelectorAll('.sc-activable')].filter((item) => {
+				let isInInnerContext = false
+				innerScrollContext.forEach((context) => {
+					isInInnerContext = isInInnerContext || context.contains(item)		
+				})
+				return !isInInnerContext
+			})
+			return activableItems
+		}
+		update() {
+			const boundingRect = this.getBoundingClientRect()
+			const elementHeight = boundingRect.bottom - boundingRect.top
+			const visibleAreaHeight = window.innerHeight + elementHeight
+			const position = Math.min(1, Math.max(0, (visibleAreaHeight - boundingRect.bottom) / visibleAreaHeight))
+			this.style.setProperty('--sc-position', `${position}`)
+			this.style.setProperty('--sc-is-visible', this.isVisible ? '1' : '0')
+
+			this._activableItems.forEach((item) =>  {
+				item.classList.toggle('sc-active', this.isVisible)
+				if(this.isVisible && !item.classList.contains('sc-was-active')) {
+					item.classList.add('sc-was-active')
+				}
+			})
+		}
+  }
+  customElements.define('scroll-context', ScrollContext);
+</script>
+
+<style is:global>
+	scroll-context {
+		--sc-position: 0; /* automatic */
+		--sc-is-visible: 0; /* automatic */
+	}
+	.sc-map-position {
+		--sc-map-position-from: 0; /* customizable */
+		--sc-map-position-to: 1; /* customizable */
+		--sc-new-position: calc(var(--sc-map-position-from) + calc(var(--sc-position) * calc(var(--sc-map-position-to) - var(--sc-map-position-from)))); /* automatic */
+	}
+</style>

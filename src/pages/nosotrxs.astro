@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HighlightText from '../components/snippets/HighlightText.astro';
+import WaveSvg from '../components/graphics/WaveSvg.astro';
+import HeroImage from '../components/blocks/HeroImage.astro';
+import TextBox from '../components/snippets/TextBox.astro';
+import ScrollContext from '../components/snippets/ScrollContext.astro';
+import GallerySlider from '../components/blocks/GallerySlider.astro';
+import PageTitle from '../components/blocks/PageTitle.astro';
+import TextCard from '../components/snippets/TextCard.astro';
+import Profile from '../components/blocks/Profile.astro';
+---
+
+<Layout title="Nosotrxs – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-21-at-8.50.32-AM-1-e1663785435905.jpeg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Nosotrxs" />
+		</header>
+		<section class="light">
+			<div class="container">
+				<div class="card-column">
+					<ScrollContext>
+					<div class="card-column__element sc-activable">
+							<TextCard title="Nuestra Historia">
+								<p>La <HighlightText>Fundación <dfn>CIGESAR</dfn></HighlightText> (Centro Integral de Género y Salud Reproductiva Argentina) surge en el año 2021 frente a las barreras en el acceso a la información y difusión que se le presentan a la población general, acerca de salud sexual reproductiva y no reproductiva, educación sexual integral (ESI), métodos anticonceptivos (MAC), interrupción voluntaria del embarazo (IVE), interrupción legal del embarazo (ILE). Sumado a la falta de recurso humano capacitado para garantizar el acceso del derecho a la salud sexual reproductiva y no reproductiva.</p>
+								<p>Nuestra gestión se basa principalmente en dos pilares:</p>
+								<ul>
+									<li>En campañas de salud garantizando el acceso e información de la salud sexual reproductiva y no reproductiva.</li>
+									<li>La capacitación de profesionales médicos de toda Latinoamérica.</li>
+								</ul>
+							</TextCard>
+						</div>
+					</ScrollContext>
+					<ScrollContext>		
+						<div class="card-column__element sc-activable">
+							<TextCard title="Nuestra Misión">
+								<p>Garantizar el acceso a los derechos sexuales y reproductivos, focalizando en la autonomía de las mujeres y diversidades sexuales,sobre sus propias decisiones.</p>
+								<p><strong><HighlightText>Abordando el acceso a la salud de modo integral.</HighlightText></strong></p>
+							</TextCard>
+						</div>
+					</ScrollContext>
+					<ScrollContext>
+						<div class="card-column__element sc-activable">
+							<TextCard title="Nuestra Visión">
+								<p>Nuestra organización trabaja para lograr pleno acceso de las mujeres y diversidades sexuales, a sus decisiones reproductivas, fundamentalmente que sean libres de elección en la maternidad, de buscar una vida sexual sin temores a embarazos no intencionales y a infecciones de transmisión sexual (ITS).</p>
+								<p>Nuestro plan estratégico decide dar prioridad al abordaje de los derechos sexuales y reproductivos de las personas, acodándolos desde todas sus dimensiones de forma integral, ordenada, y con la posibilidad de evaluar las acciones de forma sistemática a fin de analizar los resultados.</p>
+							</TextCard>
+						</div>
+					</ScrollContext>
+				</div>
+			</div>
+		</section>
+		<section class="">
+			<div class="container">
+				<Profile 
+					name="Dr. Levy Damián Ezequiel"
+					position="Director científico"
+					curriculum={[
+ 						"Medico Ginecólogo -Obstetra MN 126052 MP452209",
+ 						"Miembro Titular de la Sociedad de Ginecología y Obstetricia de Buenos Aires (SOGBA)",
+ 						"Medico Titular de guardia ginecología y obstetricia Hospital General de agudos T. Álvarez",
+ 						"Miembro de equipo de Salud Sexual y Reproductiva del Hospital General de Agudos T. Álvarez",
+ 						"Miembro Grupo Promotor de la Red de Acceso al aborto seguro Argentina (REDAAS)",
+ 						"Miembro del equipo de la Dirección Provincial de Salud Sexual Y Reproductiva (DPSSYR) Ministerio de salud de la Provincia de buenos aires",
+ 						"Consultor UNFPA para la Dirección Nacional de Salud Sexual Y Reproductiva (DNSSYR) Ministerio de salud de la nación",
+ 						"Diplomado en Salud Sexual y Derechos Reproductivos(UNSAM)",
+ 						"Director del Centro Integral de Salud Sexual y Reproductiva",
+					]}
+					pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.45.jpeg"
+					websiteUrl="https://linktr.ee/damianlevy79"
+					websiteTitle="Linktree"
+				></Profile>
+
+				<Profile 
+					name="Nemesio Alejandra Cristina"
+					position="Directora de Innovación Estratégica"
+					curriculum={[
+ 						"Coordinadora ejecutiva",
+						"Coordinadora del área programática",
+						"Coordinadora del área de promoción y difusión",
+					]}
+					pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.16.jpeg"
+				></Profile>
+
+				<Profile 
+					name="Nemesio Silvia del Carmen"
+					position="Directora Ejecutiva"
+					curriculum={[
+ 						"Médica Pediatra y Neonatologa  MN141822. MP453036",
+						"Miembro Titular de la Sociedad Argentina de Pediatría (SAP)",
+						"Miembro titular de la guardia de neonatología del Hospital José Penna",
+						"Maestría en Gestión y Administración Hospitalaria",
+					]}
+				></Profile>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-3);
+		--page-contrasting-color: var(--white);
+	}
+
+	dfn {
+		font-style: normal;
+	}
+
+	
+
+	.card-column {
+		max-width: 860px;
+		margin: 0 auto;
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+
+		&__element.sc-was-active {
+			animation: card-in 800ms ease-in-out;
+		}
+
+		@keyframes card-in {
+			0%, 30% {
+				opacity: 0;
+				transform: translateY(3rem);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

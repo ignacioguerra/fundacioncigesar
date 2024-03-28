@@ -1,0 +1,49 @@
+---
+import ScrollContext from "./ScrollContext.astro";
+
+---
+
+<ScrollContext>
+	<span class="highligh sc-map-position sc-activable">
+		<span>
+			<slot></slot>
+		</span>
+	</span>
+</ScrollContext>
+
+<style>
+	.highligh {
+		display: inline-block;
+		font-weight: var(--font-weight-bold);
+		position: relative;
+		padding: 0 0.25rem;
+
+		span {
+			position: relative;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0.125rem;
+			left: -0.125rem;
+			bottom: 0.125rem;
+			width: 0;
+			background-color: var(--accent-color);
+			transform: translateX(1rem)
+		}
+
+		&.sc-was-active {
+			transition: color 200ms ease-in-out;
+			transition-delay: 400ms;
+			color: var(--white);
+			&::before {
+				transition: width 400ms ease-in-out, transform 400ms ease-in-out;;
+				transition-delay: 300ms;
+				width: calc(100% + 0.25rem);
+				transform: none;
+			}
+		}
+	}
+</style>

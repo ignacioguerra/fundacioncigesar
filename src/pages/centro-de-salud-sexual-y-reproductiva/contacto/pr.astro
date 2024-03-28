@@ -1,0 +1,127 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import WaveSvg from '../../../components/graphics/WaveSvg.astro';
+import HeroImage from '../../../components/blocks/HeroImage.astro';
+import TextBox from '../../../components/snippets/TextBox.astro';
+import ScrollContext from '../../../components/snippets/ScrollContext.astro';
+import PageTitle from '../../../components/blocks/PageTitle.astro';
+import ContactForm from '../../../components/ContactForm.astro';
+import SocialIconLinks from '../../../components/SocialIconLinks.astro';
+import ContactData from '../../../components/ContactData.astro';
+import LinkButton from '../../../components/snippets/LinkButton.astro';
+import IconWhatsapp from '../../../components/icons/IconWhatsapp.astro';
+import WhatsappLink from '../../../components/WhatsappLink.astro';
+import InnerMenu from '../../../components/InnerMenu.astro';
+import { cissyrMenu, mainMenu } from "../../../constants/pages";
+
+const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
+---
+
+<Layout title="Contacto (PR) – Centro Integral de salud sexual y reproductiva – Fundacion Cigesar">
+	<Header />
+	<main class="page" lang="pr">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5693-scaled-e1630431532611.jpg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Contato" backTo={parentPage} />
+			<div class="container">
+				<InnerMenu menu={cissyrMenu} />
+			</div>
+		</header>
+		<section class="light -no-gap">
+			<div class="container">
+				<TextBox>
+					<p>Esperamos ser o local de informação e suporte que você procura.</p>
+				</TextBox>
+				<ScrollContext>
+					<div class="contact-block">
+						<div class="contact-block__map">
+							<img class="sc-map-position" src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5693-scaled-e1663847661632-768x1152.jpg" alt="">
+							<!-- <iframe class="sc-map-position" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.3176236532763!2d-58.56523111090337!3d-34.596128987357844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb94a666b3cc1%3A0x217270cd28113895!2sFundaci%C3%B3n%20CIGESAR!5e0!3m2!1ses-419!2sar!4v1710936079697!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+						</div>
+						<div class="contact-block__form">
+							<ContactForm />
+							<WhatsappLink phoneNumber="5491161874697" readablePhoneNuember="+54 9 11 6187-4697" />
+							<!-- <ContactData />
+							<SocialIconLinks
+								instagram="https://www.instagram.com/fundacion.cigesar/"
+								facebook="https://www.facebook.com/Centro-Integral-de-Salud-Sexual-y-Reproductiva-376361479429154"
+								youtube="https://www.youtube.com/channel/UCgWxgJXBpjzVWy8JmQ2rpYA"
+								x="https://x.com/cigesar"
+							/> -->
+						</div>
+					</div>
+				</ScrollContext>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--white);
+	}
+
+	.contact-block {
+		position: relative;
+		display: flex;
+		align-items: stretch;
+		gap: 0;
+
+		&__map {
+			padding: 0 0 6rem;
+			display: flex;
+			flex-direction: column-reverse;
+			gap: 2rem;
+			flex: 1;
+			max-width: 400px;
+
+			img {
+				--sc-map-position-from: 0rem;
+				--sc-map-position-to: 6rem;
+				transform: translate3d(0,var(--sc-new-position),0);
+				flex: 1;
+				width: 100%;
+				object-fit: cover;
+			}
+		}
+		
+		&__form {
+			flex: 1;
+			padding: 4rem 2rem 6rem;
+			position: relative;
+			background-color: var(--white);
+			box-shadow: 0 6px 18px rgba(0,0,0,.1);
+			border-radius: 4px;
+			border-bottom: 4px solid var(--page-primary-color);
+
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+		}
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

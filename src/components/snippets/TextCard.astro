@@ -1,0 +1,58 @@
+---
+import ScrollContext from "./ScrollContext.astro";
+import TextBox from "./TextBox.astro";
+
+interface Props {
+	title: string;
+	small?: boolean;
+}
+
+const { title, small } = Astro.props;
+---
+
+<div class:list={['text-card', { 'text-card--small': small }]}>
+	<ScrollContext>
+		<div class="text-card__inner">
+			<h2 class="text-card__title sc-map-position">{ title }</h2>
+			<div class="text-card__text sc-map-position">
+				<TextBox>
+					<slot></slot>
+				</TextBox>
+			</div>
+		</div>
+	</ScrollContext>
+</div>
+
+<style>
+	.text-card {
+		border: 1px solid var(--page-primary-color);
+		
+		&__inner {
+			position: relative;
+			margin-bottom: 1rem;
+			padding: 6.5rem;
+		}
+
+		&--small &__inner {
+			padding: 6.5rem 4rem;
+		}
+
+		&__text {
+			--sc-map-position-from: -2rem;
+			--sc-map-position-to: 4rem;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+
+		&__title {
+			position: absolute;
+			left: 3rem;
+			top:0;
+			width: fit-content;
+			background-color: var(--page-primary-color);
+			color: var(--white);
+			padding: 0.5rem 2rem;
+			margin-top: -1rem;
+			margin-left: -1rem;
+		}
+	}
+</style>

@@ -1,0 +1,143 @@
+---
+import IconArrowLeft from '../icons/IconArrowLeft.astro'
+import IconArrowRight from '../icons/IconArrowRight.astro'
+
+interface Props {
+}
+---
+
+<image-slider class="image-slider">
+	<div class="image-slider__inner">
+		<slot></slot>
+	</div>
+	<button class="image-slider__button image-slider__button--prev">
+		<span>Anterior</span>
+		<IconArrowLeft />
+	</button>
+	<button class="image-slider__button image-slider__button--next">
+		<span>Siguiente</span>
+		<IconArrowRight />
+	</button>
+</image-slider>
+<script>
+	class ImageSlider extends HTMLElement {
+		private _prevButton:HTMLElement
+		private _nextButton:HTMLElement
+		private _scrollableArea:HTMLElement
+		private _autoplay:'none'|'next'|'prev'
+
+		constructor() {
+			super()
+			this._scrollableArea = this.querySelector('.image-slider__inner')
+			this._prevButton = this.querySelector('.image-slider__button--prev')
+			this._nextButton = this.querySelector('.image-slider__button--next')
+
+			this._prevButton.addEventListener('click', () => {
+				this._prev()
+				this._autoplay = 'none'
+			})
+			this._nextButton.addEventListener('click', () => {
+				this._next()
+				this._autoplay = 'none'
+			})
+			this._scrollableArea.addEventListener('scroll', this._updateButtons.bind(this), { passive: true })
+			this._updateButtons()
+
+			this._autoplay = 'next'
+			setTimeout(this._autoRun.bind(this), Math.random() * 200)
+		}
+		private _autoRun() {
+			if(this._autoplay === 'none') return
+			else if(this._autoplay === 'next') this._next()
+			else if(this._autoplay === 'prev') this._prev()
+			setTimeout(this._autoRun.bind(this), 2000 + Math.random() * 500)
+		}
+		private _prev() {
+			const stepSize = this._scrollableArea.offsetWidth / 3
+			this._scrollableArea.scrollLeft -= stepSize;
+		}
+		private _next() {
+			const stepSize = this._scrollableArea.offsetWidth / 3
+			this._scrollableArea.scrollLeft += stepSize;
+		}
+		private _updateButtons() {
+			const leftLimit = 25
+			const rightLimit = this._scrollableArea.scrollWidth - this._scrollableArea.offsetWidth - 25
+			const leftLimitReached = this._scrollableArea.scrollLeft < leftLimit
+			const rightLimitReached = this._scrollableArea.scrollLeft > rightLimit
+			this._prevButton.classList.toggle('disabled', leftLimitReached)
+			this._nextButton.classList.toggle('disabled', rightLimitReached)
+
+			if(rightLimitReached && this._autoplay === 'next') this._autoplay = 'prev'
+			else if(leftLimitReached && this._autoplay === 'prev') this._autoplay = 'next'
+		}
+	}
+	customElements.define('image-slider', ImageSlider);
+</script>
+<style>
+	.image-slider {
+		position: relative;
+		display: block;
+		--slides: 1.75;
+		--gap: 1px;
+
+		&__inner {
+			display: flex;
+			gap: var(--gap);
+			overflow: auto;
+			border-radius: var(--border-radius);
+	
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+			-ms-overflow-style: none;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+
+		&__button {
+			position: absolute;
+			display: flex;
+			font-size: 2rem;
+			justify-content: center;
+			align-items: center;
+
+			top: 50%;
+			height: 65px;
+			width: 45px;
+			border-radius: 0;
+			padding: 0;
+			margin: 0;
+			border: 0;
+			cursor: pointer;
+			transform: translateY(-50%);
+			/* background: linear-gradient(90deg, rgba(0,0,0,.1) 0%, rgba(0,0,0,.25) 100%); */
+			background-color: rgba(255,255,255,.65);
+			/* opacity: .75; */
+			backdrop-filter: blur(8px);
+			transition: opacity 200ms ease-in-out;
+
+			&:hover {
+				background-color: var(--page-contrasting-color);
+				color: var(--page-primary-color);
+				opacity: 1;
+			}
+			
+			span {
+				display: block;
+				text-indent: -99999px;
+			}
+
+			&--prev {
+				left: 0;
+			}
+			&--next {
+				right: 0;
+			}
+
+			&.disabled {
+				pointer-events: none;
+				opacity: 0;
+			}
+		}
+	}
+</style>

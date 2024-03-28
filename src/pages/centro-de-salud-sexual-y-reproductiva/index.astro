@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Card from '../../components/Card.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HighlightText from '../../components/snippets/HighlightText.astro';
+import WaveSvg from '../../components/graphics/WaveSvg.astro';
+import HeroImage from '../../components/blocks/HeroImage.astro';
+import TextBox from '../../components/snippets/TextBox.astro';
+import ScrollContext from '../../components/snippets/ScrollContext.astro';
+import GallerySlider from '../../components/blocks/GallerySlider.astro';
+import PageTitle from '../../components/blocks/PageTitle.astro';
+import PressArticle from '../../components/snippets/PressArticle.astro';
+import Profile from '../../components/blocks/Profile.astro';
+import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
+import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
+import TextCard from '../../components/snippets/TextCard.astro';
+import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
+import IconGallery from '../../components/icons/IconGallery.astro';
+import IconInfo from '../../components/icons/IconInfo.astro';
+import IconQuote from '../../components/icons/IconQuote.astro';
+import LinkButton from '../../components/snippets/LinkButton.astro';
+import MiniCollage from '../../components/snippets/MiniCollage.astro';
+import ServiceCard from '../../components/snippets/ServiceCard.astro';
+import InnerMenu from '../../components/InnerMenu.astro';
+import { cissyrMenu } from "../../constants/pages";
+---
+
+<Layout title="Centro Integral de salud sexual y reproductiva – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://firebasestorage.googleapis.com/v0/b/fundacion-cigesar.appspot.com/o/centro-de-salud-sexual-y-reproductiva%2Fheader.jpg?alt=media&token=5698b213-bb11-4968-88ad-4ba599fe0df7" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Centro Integral de Salud Sexual y Reproductiva" />
+			<div class="container">
+				<InnerMenu menu={cissyrMenu} />
+			</div>
+		</header>
+		<section class="light -no-gap">
+			<div class="container">
+				<div class="youtube-video-modal">
+					<div class="youtube-video-modal__container">
+						<YoutubePlayer videoId="Hhqbl27MgR8" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_35-scaled.jpg"  width={560} height={315} />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="light no-gap">
+			<ScrollContext>
+				<div class="big-text --sc-map-position">
+					<div class="container">
+						<div class="big-text__content">
+							<p>"Garantizar el acceso a los derechos sexuales y reproductivos, focalizando en la autonomía de las mujeres y diversidades sexuales sobre sus propias decisiones."</p>
+						</div>
+					</div>
+				</div>
+			</ScrollContext>
+		</section>
+		<section class="-light -no-gap">
+			<div class="container">
+				<div class="image-with-text">
+					<div class="image-with-text__image">
+						<MiniCollage
+							bigImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5763-1024x683.jpg"
+							smallImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5730-1024x683.jpg" 
+						/>
+					</div>
+					<div class="image-with-text__text">
+						<h2>Capacitaciones y Campañas de salud</h2>
+						<div class="image-with-text__text__link">
+							<LinkButton style="link" text="Ver galería" href="/centro-de-salud-sexual-y-reproductiva/capacitaciones/"><IconGallery /></LinkButton>
+						</div>
+						<!-- <a href="#">Ver galería</a> -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="light">
+			<div class="container">
+				<h2 class="cards__title">Todo lo que necesitás saber sobre...</h2>
+				<div class="cards">
+					<ServiceCard
+						title="IVE"
+						description="Interrupción voluntaria del embarazo"
+						linkUrl="/ive/"
+					/>
+					<ServiceCard
+						title="MAC"
+						description="Métodos anticonceptivos"
+						linkUrl="/metodos-anticonceptivos/"
+					/>
+				</div>
+				<!-- <p>"Garantizar el acceso a los derechos sexuales y reproductivos, focalizando en la autonomía de las mujeres y diversidades sexuales sobre sus propias decisiones "</p> -->
+			</div>
+		</section>
+		<section class="">
+			<div class="container">
+				<ScrollContext>
+					<div class="testimonial">
+						<h2>Testimonios</h2>
+						<blockquote>
+							<div class="testimonial__content sc-map-position">
+								<div class="testimonial__icon sc-map-position">
+									<IconQuote />
+								</div>
+								<p>Los médicos y las orientadoras fueron súper amorosos, me sentí muy acompañada y cómoda.</p>
+							</div>
+						</blockquote>
+						<p class="testimonial__who">Paciente del Centro integral de salud sexual y reproductiva</p>
+					</div>
+				</ScrollContext>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--white);
+	}
+
+	.testimonial {
+		h2 {
+			/* text-align: center; */
+			font-size: 1.25rem;
+			font-weight: var(--font-weight-medium);
+			/* color: var(--gray-600); */
+			margin: 0 auto 0.5rem;
+			padding: 0 1rem;
+			max-width: 980px;
+		}
+
+		&__content {
+			--sc-map-position-from: 1rem;
+			--sc-map-position-to: -2rem;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+
+		&__icon {
+			font-size: 3rem;
+			margin-bottom: 0.5rem;
+
+			--sc-map-position-from: -1rem;
+			--sc-map-position-to: 1rem;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+
+		&__who {
+			text-align: center;
+			font-style: italic;
+			font-size: 1.125rem;
+			margin: -1rem auto 2rem;
+			padding: 0 2rem;
+			background-color: var(--gray-100);
+			width: fit-content;
+		}
+
+		blockquote {
+			font-size: 1.75rem;
+			font-weight: var(--font-weight-light);
+			text-wrap: balance;
+			text-align: center;
+			padding: 6rem 4rem 8rem;
+			margin: 0 auto;
+			max-width: 980px;
+			border: 1px solid var(--gray-400);
+			border-radius: 8px;
+
+			p {
+				margin: 0;
+			}
+		}
+	}
+
+	.cards {
+		display: flex;
+		gap: 3rem;
+
+		&__title {
+			font-size: 2rem;
+			margin: 0 0 2rem;
+		}
+	}
+
+	.image-with-text {
+		display: flex;
+		padding: 2rem 0 3rem;
+		&__image {
+			flex: 5;
+		}
+		&__text {
+			flex: 4;
+			position: relative;
+			/* display: flex;
+			flex-direction: column;
+			justify-content: flex-start; */
+			position: relative;
+			h2 {
+				font-size: 2.75rem;
+				line-height: 1.125;
+				text-wrap: balance;
+				/* text-align: right; */
+				margin: 6rem 0 0;
+			}
+
+			&__link {
+				position: absolute;
+				top: 50%;
+				left: 3rem;
+			}
+		}
+	}
+	
+	.big-text {
+		background-color: var(--page-primary-color);
+		padding: 3rem 0;
+
+		--sc-map-position-from: 3rem;
+		--sc-map-position-to: -3rem;
+		transform: translate3d(0,var(--sc-new-position),0);
+
+		&__content {
+			font-size: 2rem;
+			max-width: 900px;
+			margin: 0 auto;
+			text-wrap: balance;
+			text-align: center;
+			font-weight: var(--font-weight-medium);
+			color: var(--white);
+		}
+	}
+
+	.press-articles {
+		display: flex;
+		flex-direction: column;
+		gap: 6rem;
+		margin-bottom: 4rem;
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

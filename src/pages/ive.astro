@@ -1,0 +1,419 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import HighlightText from '../components/snippets/HighlightText.astro';
+import WaveSvg from '../components/graphics/WaveSvg.astro';
+import HeroImage from '../components/blocks/HeroImage.astro';
+import TextBox from '../components/snippets/TextBox.astro';
+import ScrollContext from '../components/snippets/ScrollContext.astro';
+import GallerySlider from '../components/blocks/GallerySlider.astro';
+import PageTitle from '../components/blocks/PageTitle.astro';
+import PressArticle from '../components/snippets/PressArticle.astro';
+import Profile from '../components/blocks/Profile.astro';
+import YoutubePlayer from '../components/blocks/YoutubePlayer.astro';
+import ParallaxImage from '../components/snippets/ParallaxImage.astro';
+import TextCard from '../components/snippets/TextCard.astro';
+import YoutubeVideoLauncher from '../components/snippets/YoutubeVideoLauncher.astro';
+import IconGallery from '../components/icons/IconGallery.astro';
+import IconInfo from '../components/icons/IconInfo.astro';
+import IconQuote from '../components/icons/IconQuote.astro';
+import LinkButton from '../components/snippets/LinkButton.astro';
+import MiniCollage from '../components/snippets/MiniCollage.astro';
+import Tab from '../components/snippets/Tab.astro';
+import IconYoutube from '../components/icons/IconYoutube.astro';
+---
+
+<Layout title="Interrupción Voluntaria del Embarazo – Fundacion Cigesar">
+	<Header />
+	<main class="page">
+		<header>
+			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5788-scaled.jpg" size="small">
+				<WaveSvg />
+			</HeroImage>
+			<PageTitle title="Interrupción Voluntaria del Embarazo" />
+		</header>
+		<section class="light -no-gap">
+			<div class="container">
+				<div class="youtube-video-modal">
+					<div class="youtube-video-modal__container">
+						<YoutubePlayer videoId="U1qeR7mzx6I" poster="https://firebasestorage.googleapis.com/v0/b/fundacion-cigesar.appspot.com/o/ive%2Fvideo-ive.jpg?alt=media&token=43f4a6c1-773d-43b0-a0d7-387f6ca49811"  width={560} height={315} />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="-*light">
+			<div class="container">
+				<div class="card-column">
+					<ScrollContext>		
+						<div class="card-column__element sc-activable">
+							<TextCard title="Modelo de atención">
+								<ul>
+									<li>Tratamientos avalados por su seguridad y eficacia, recomendados por la Organización Mundial de la Salud.</li>
+									<li>Acompañamiento telefónico 24 horas para la atención de eventuales complicaciones.</li>
+									<li>Control médico dos semanas después de iniciado el tratamiento.</li>
+									<li>Elección de un método anticonceptivo post tratamiento sin costo adicional, para vivir una sexualidad plena, segura y placentera.</li>
+									<li>Un equipo profesional en permanente actualización clínica en el manejo de las técnicas más avanzadas para la atención de IVE.</li>
+								</ul>
+							</TextCard>
+						</div>
+					</ScrollContext>
+				</div>
+				
+				
+			</div>
+		</section>
+		<section class="color">
+			<div class="container">
+				<ScrollContext>
+					<div class="stages">
+						<div class="stages__title">
+							<h2 class="sc-map-position">El servicio de Interrupción Voluntaria del Embarazo generalmente tiene diferentes etapas</h2>
+						</div>
+						<div class="stages__wrapper">
+								<ol class="stages__list sc-map-position">
+									<li>
+										<ScrollContext>
+											<div class="stages__stage sc-activable">
+												<h3 class="stages__stage__title sc-map-position">1° Etapa</h3>
+												<p class="stages__stage__content">El proceso inicia con una consulta de asesoramiento e información donde se abordan aspectos biopsicosociales, se aclaran dudas sobre las opciones de tratamiento y los aspectos legales de la interrupción voluntaria del embarazo.</p>
+											</div>
+										</ScrollContext>
+									</li>
+									<li>
+										<ScrollContext>
+											<div class="stages__stage sc-activable">
+												<h3 class="stages__stage__title sc-map-position">2° Etapa</h3>
+												<p class="stages__stage__content">Se realiza una valoración médica para determinar tu estado de salud a través de un examen ginecológico, toma de signos vitales y de ser necesario una revisión ecográfica.</p>
+											</div>
+										</ScrollContext>
+									</li>
+									<li>
+										<ScrollContext>
+											<div class="stages__stage sc-activable">
+												<h3 class="stages__stage__title sc-map-position">3° Etapa</h3>
+												<p class="stages__stage__content">Si la paciente así lo dispone, y si no hay contraindicaciones médicas u otra observación o requerimiento especial de salud, se realiza la Interrupción voluntaria del embarazo según las opciones de tratamiento.</p>
+											</div>
+										</ScrollContext>
+									</li>
+									<li>
+										<ScrollContext>
+											<div class="stages__stage sc-activable">
+												<h3 class="stages__stage__title sc-map-position">4° Etapa</h3>
+												<p class="stages__stage__content">Finalmente, te ofrecemos una cita de control médico opcional, dos semanas después para hacer un cierre óptimo de tratamiento, recibir asesoría y/o elección de método anticonceptivo e información para la prevención en salud sexual y reproductiva.</p>
+											</div>
+										</ScrollContext>
+									</li>
+								</ol>
+							</div>
+						</div>
+					</ScrollContext>
+				</div>
+		</section>
+		<section class="light -no-gap">
+			<div class="container">
+				<div class="card-comparative-columns">
+					<div class="card-column">
+						<!-- <ScrollContext>		
+							<div class="card-column__element sc-activable"> -->
+								<TextCard title="Tratamiento Farmacológico" small>
+									<p>Hasta 12.6 semanas</p>
+									<h3>Incluye</h3>
+									<ul>
+										<li>Recepción y evaluación de la situación</li>
+										<li>Prescripción del tratamiento</li>
+										<li>Seguimiento diario hasta su conclusión</li>
+										<li>Medicación</li>
+										<li>Control Post IVE y asesoramiento en anticoncepción</li>
+									</ul>
+									<h3>Modalidad</h3>
+									<ul>
+										<li>Tratamiento ambulatorio</li>
+									</ul>
+								</TextCard>
+							<!-- </div> -->
+						<!-- </ScrollContext> -->
+					<!-- </div>
+					<div class="card-column">
+						<ScrollContext>		
+							<div class="card-column__element sc-activable"> -->
+								<TextCard title="Tratamiento Ameu" small>
+									<p>Hasta 12.6 semanas</p>
+									<h3>Incluye</h3>
+									<ul>
+										<li>Recepción y evaluación de la situación de indicaciones del AMEU</li>
+										<li>AMEU</li>
+										<li>Medicación</li>
+										<li>Instrumental especifico descartable.</li>
+									</ul>
+									<h3>Modalidad</h3>
+									<ul>
+										<li>Tratamiento ambulatorio</li>
+									</ul>
+									<!-- <LinkButton text="¿Sabés qué es AMEU?" href={'U1qeR7mzx6I'} external><IconYoutube /></LinkButton> -->
+									<!-- <YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} /> -->
+								</TextCard>
+							<!-- </div> -->
+						</ScrollContext>
+					</div>
+				</div>
+				<!-- <div class="youtube-video-modal">
+					<div class="youtube-video-modal__container">
+						<YoutubePlayer videoId="U1qeR7mzx6I" poster="/cissyr/servicios/ive/video-2.jpg"  width={560} height={315} />
+					</div>
+				</div> -->
+			</div>
+			<div class="container">
+				<!-- <div class="--card-column">
+					<ScrollContext>		
+						<div class="--card-column__element sc-activable">
+							<TextCard title="AMEU">
+								<YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} />
+							</TextCard>
+						</div>
+					</ScrollContext>
+				</div> -->
+				<!-- <div class="youtube-video-modal">
+					<div class="youtube-video-modal__container">
+						<YoutubePlayer videoId="U1qeR7mzx6I" poster="/cissyr/servicios/ive/video-2.jpg"  width={560} height={315} />
+					</div>
+				</div> -->
+			</div>
+		</section>
+
+		<section class="light -no-gap">
+			<div class="container">
+				<h2>¿Qué es <dfn><abbr title="Aspiración Manual Endo Uterina">AMEU</abbr></dfn>?</h2>
+				<YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} />
+			</div>
+		</section>
+
+
+	</main>
+	<Footer />
+</Layout>
+
+<style>
+	:root {
+		--page-primary-color: var(--accent-color-1);
+		--page-contrasting-color: var(--white);
+	}
+
+	.card-column {
+		max-width: 860px;
+		margin: 0 auto;
+		padding-top: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+
+		&__element.sc-was-active {
+			animation: card-in 800ms ease-in-out;
+		}
+
+		@keyframes card-in {
+			0%, 30% {
+				opacity: 0;
+				transform: translateY(3rem);
+			}
+			100% {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+	
+	.card-comparative-columns {
+		/* display: flex;
+		gap: 45px; */
+
+		.card-column {
+			/* flex: 1; */
+			/* align-self: stretch; */
+			display: flex;
+			gap: 25px;
+			flex-direction: row;
+			justify-content: stretch;
+			max-width: none;
+			& > :global(*) {
+				flex: 1;
+				width: 50%;
+			}
+		}
+	}
+
+	.stages {
+		display: flex;
+		gap: 90px;
+
+		&__title {
+			flex: 2;
+			h2 {
+				font-size: 2rem;
+				font-weight: var(--font-weight-medium);
+				text-wrap: balance;
+				line-height: 1.25;
+				margin: 0;
+				/* position: sticky;
+				top: 10rem; */
+				--sc-map-position-from: 6rem;
+				--sc-map-position-to: 0rem;
+				transform: translate3d(0,var(--sc-new-position),0);
+			}
+		}
+
+		&__wrapper {
+			flex: 4;
+			position: relative;
+			padding: 3rem 0;
+
+			&::after {
+				content: "";
+				display: block;
+				background-color: var(--page-contrasting-color);
+				position: absolute;
+				width: 1px;
+				top: -4rem;
+				bottom: -4rem;
+				left: 9rem;
+				opacity: .25;
+			}
+		}
+
+		&__list {
+			display: flex;
+			flex-direction: column;
+			gap: 3rem;
+
+			--sc-map-position-from: -5rem;
+			--sc-map-position-to: 5rem;
+			transform: translate3d(0,var(--sc-new-position),0);
+		}
+
+		&__stage {
+			display: flex;
+			align-items: flex-start;
+			gap: 45px;
+			will-change: transform;
+
+			&.sc-was-active {
+				animation: stage-item-in 600ms ease-in-out;
+				@keyframes stage-item-in {
+					0%, 10% { opacity: 0; transform: translateY(1rem); }
+					100% { opacity: 1; transform: translateY(0); padding-bottom: 0; }
+				}
+			}
+
+			&.sc-was-active &__title::after {
+				animation: bullet-in 600ms ease-out;
+				@keyframes bullet-in {
+					0%, 30% { transform: scale(0) translateY(3rem); }
+					100% { transform: scale(1) translateY(0); }
+				}
+			}
+
+			&__title {
+				width: 9rem;
+				font-size: 1.5rem;
+				/* text-align: right; */
+				text-transform: lowercase;
+				position: relative;
+				margin: 0;
+				padding-right: 20px;
+
+				--sc-map-position-from: 1rem;
+				--sc-map-position-to: -1rem;
+				transform: translate3d(0,var(--sc-new-position),0);
+
+				&::after {
+					content: "";
+					display: block;
+					background-color: var(--page-contrasting-color);
+					position: absolute;
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					top: 50%;
+					right: -5px;
+				}
+			}
+
+			&__content {
+				flex: 4;
+				font-size: 1.25rem;
+				font-weight: var(--font-weight-light);
+				line-height: 1.75;
+				margin: 0;
+			}
+		}
+
+		ol, li {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	}
+
+
+	.service-card-list {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		gap: 20px;
+	}
+
+
+	.image-with-text {
+		display: flex;
+		padding: 2rem 0 3rem;
+		gap: 80px;
+		&__image {
+			flex: 1;
+		}
+		&__text {
+			flex: 1;
+			position: relative;
+			/* display: flex;
+			flex-direction: column;
+			justify-content: flex-start; */
+			position: relative;
+			h2 {
+				font-size: 2.75rem;
+				line-height: 1.125;
+				text-wrap: balance;
+				/* text-align: right; */
+				margin: 6rem 0 0;
+			}
+
+			&__link {
+				position: absolute;
+				top: 50%;
+				left: 3rem;
+			}
+		}
+	}
+
+	section {
+		padding: 4rem 0;
+		background-color: var(--gray-100);
+
+		&.light {
+			background-color: var(--white);
+			/* padding: 1.5rem 0; */
+		}
+
+		&.color {
+			background-color: var(--page-primary-color);
+			color: var(--page-contrasting-color);
+		}
+
+		&.no-gap {
+			padding: 0;
+		}
+
+		&.overlap {
+			margin-top: -200px;
+			padding-top: 200px;
+		}
+	}
+</style>

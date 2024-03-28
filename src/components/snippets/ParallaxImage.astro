@@ -1,0 +1,46 @@
+---
+import ScrollContext from './ScrollContext.astro';
+
+interface Props {
+	src: string;
+	alt?: string;
+	width: number;
+	height: number;
+}
+
+const { src, alt="", width, height } = Astro.props;
+const placeholderViewBox = `0 0 ${width} ${height}`
+---
+
+<div class="parallax-image">
+	<ScrollContext>
+		<svg class="parallax-image__placeholder" viewBox={ placeholderViewBox }></svg>
+		<img src={src} alt={alt} class="sc-map-position" />
+	</ScrollContext>
+</div>
+
+<style>
+	.parallax-image {
+		position: relative;
+		border-radius: var(--border-radius);
+		overflow: hidden;
+
+		&__placeholder {
+			display: block;
+		}
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% + 80px);
+			object-fit: cover;
+
+			--sc-map-position-from: -80px;
+			--sc-map-position-to: 0px;
+			transform: translateY(var(--sc-new-position));
+		}
+	}
+</style>

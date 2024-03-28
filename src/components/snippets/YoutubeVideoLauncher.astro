@@ -1,0 +1,73 @@
+---
+import IconYoutube from '../icons/IconYoutube.astro';
+
+interface Props {
+	videoId: string;
+	mainText: string;
+	description?: string;
+}
+
+const { videoId, mainText, description } = Astro.props
+const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&amp;controls=0&amp;modestbranding=1&amp;rel=0&amp;showinfo=0`;
+const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+---
+
+<div class="youtube-video-launcher">
+	<a href={ videoUrl } target="_blank" class="youtube-video-launcher__button">
+		<div class="youtube-video-launcher__icon" aria-hidden="true"><IconYoutube /></div>
+		<div class="youtube-video-launcher__text"><strong>{ mainText} </strong> { description }</div>
+	</a>
+</div>
+
+<style>
+	.youtube-video-launcher {
+		--shadow:  0 6px 6px rgba(0,0,0,.25);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		/* text-shadow: 0 1px 2px rgba(0,0,0,1), var(--shadow); */
+		/* opacity: .75; */
+
+		&__button {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			/* border: 1px solid var(--white); */
+			background-color: var(--white);
+			/* box-shadow: var(--shadow); */
+
+			padding: 0.75rem 3rem 0.75rem 1.75rem;
+			border-radius: 80px;
+			text-decoration: none;
+			color: var(--gray-800);
+
+			transition: background-color 150ms ease-in-out, color 100ms ease-out;
+
+			&:hover {
+				background-color: var(--accent-color-2);
+				color: var(--white);
+			}
+		}
+
+		&__text {
+			font-size: 1.25rem;
+			line-height: 1.0625;
+			font-weight: var(--font-weight-light);
+			margin: 0;
+			strong {
+				font-weight: var(--font-weight-bold);
+				display: block;
+			}
+		}
+
+		&__icon {
+			padding-top: 0.4375rem;
+			svg {
+				width: 2.5rem;
+				height: 2.5rem;
+				/* filter: drop-shadow(var(--shadow)); */
+			}
+		}
+	}
+</style>
