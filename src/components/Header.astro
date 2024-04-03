@@ -1,17 +1,10 @@
 ---
 import mainMenu from '../constants/pages';
 import IconArrowDown from './icons/IconArrowDown.astro';
+import IconClose from './icons/IconClose.astro';
+import IconMenu from './icons/IconMenu.astro';
 
-interface Props {
-	// title?: string;
-	// body?: string;
-	// href?: string;
-}
-
-// const { href, title, body } = Astro.props;
-const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
-// const currentPath = pathname.slice(1);
-
+const pathname = new URL(Astro.request.url).pathname;
 ---
 
 <header class="header">
@@ -22,56 +15,56 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 					<img src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/02/002-scaled-298x126.jpg" alt="Fundación Cigesar">
 				</a>
 			</div>
-			<div class="main-menu">
-				<nav>
-					<ul class="main-menu__item-list">
-						{ 
-							mainMenu.map((menuItem) => {
-								const slug = menuItem.slug || ''
-								const isActive = Astro.url.pathname.startsWith(slug)
-								const withSubmenu = !!menuItem.submenu
-								return <li class:list={[ 
-									'main-menu__item', { 
-										'main-menu__item--active': isActive,
-										'main-menu__item--with-submenu': withSubmenu,
-									}]}>
-									<a class="main-menu__item__link" href={slug}>
-										{ menuItem.title }
-										{ withSubmenu && <IconArrowDown /> }
-									</a>
-									{ withSubmenu && <ul class="main-menu__submenu">{
-											menuItem.submenu.map((submenuItem) => {
-												const subItemSlug = submenuItem.slug || ''
-												const subItemIsActive = Astro.url.pathname.startsWith(subItemSlug)
-												return <li class:list={[
-													'main-menu__submenu__item', { 
-														'main-menu__submenu__item--active': subItemIsActive 
-													}]}><a class="main-menu__submenu__item__link" href={subItemSlug}>{ submenuItem.title }</a></li>
-											}) 
-										}</ul> }
-								</li>
-							}) 
-						}
-						<!-- <li><a href="#">Fundación Cigesar</a></li> -->
-						<!-- <li><a href="/nosotrxs">Nosotrxs</a></li>
-						<li>
-							<a href="/centro-de-salud-sexual-y-reproductiva">CISSYR</a>
-							<ul class="sub-menu">
-								<li><a href="/somos">Somos</a></li>
-								<li><a href="#">Servicios</a></li> -->
-								<!-- <li><a href="#">IVE</a></li>
-								<li><a href="#">Vasectomía</a></li>
-								<li><a href="#">Ginecología</a></li>
-								<li><a href="#">Obstetricia</a></li>
-								<li><a href="#">Psicología</a></li> -->
-								<!-- <li><a href="#">Contacto ES</a></li>
-								<li><a href="#">Contacto PR</a></li>
-							</ul>
-						</li>
-						<li><a href="/medios">Medios</a></li>
-						<li><a href="/contacto">Contacto</a></li> -->
-					</ul>
-				</nav>
+			<button class="menu-button" id="menu-opener">
+				<IconMenu />
+			</button>
+			<div class="main-menu" id="main-menu">
+				<div class="main-menu__bar">
+					<nav>
+						<ul class="main-menu__item-list">
+							<li class:list={[ 
+								'main-menu__item',
+								'main-menu__item--home', { 
+								'main-menu__item--active': pathname == '/',
+							}]}>
+								<a class="main-menu__item__link" href='/'>Inicio</a>
+							</li>
+							{ 
+								mainMenu.map((menuItem) => {
+									const slug = menuItem.slug || ''
+									const isActive = pathname.startsWith(slug)
+									const withSubmenu = !!menuItem.submenu
+									return <li class:list={[ 
+										'main-menu__item', { 
+											'main-menu__item--active': isActive,
+											'main-menu__item--with-submenu': withSubmenu,
+										}]}>
+										<a class="main-menu__item__link" href={slug}>
+											{ menuItem.title }
+											{ withSubmenu && <IconArrowDown /> }
+										</a>
+										<div class="main-menu__item__submenu-icon">
+											<IconArrowDown />
+										</div>
+										{ withSubmenu && <ul class="main-menu__submenu">{
+												menuItem.submenu.map((submenuItem) => {
+													const subItemSlug = submenuItem.slug || ''
+													const subItemIsActive = pathname.startsWith(subItemSlug)
+													return <li class:list={[
+														'main-menu__submenu__item', { 
+															'main-menu__submenu__item--active': subItemIsActive 
+														}]}><a class="main-menu__submenu__item__link" href={subItemSlug}>{ submenuItem.title }</a></li>
+												}) 
+											}</ul> }
+									</li>
+								}) 
+							}
+						</ul>
+					</nav>
+					<button class="close-button" id="menu-closer">
+						<IconClose />
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -84,6 +77,16 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 	document.addEventListener('DOMContentLoaded', updateHeaderHeight, { once: true })
 	document.addEventListener('load', updateHeaderHeight, { once: true })
 	updateHeaderHeight()
+
+	const menu = document.getElementById('main-menu')
+	const menuOpener = document.getElementById('menu-opener')
+	const menuCloser = document.getElementById('menu-closer')
+	menuOpener.addEventListener('click', function() {
+		menu.classList.add('open')
+	})
+	menuCloser.addEventListener('click', function() {
+		menu.classList.remove('open')
+	})
 </script>
 <style>
 	.header {
@@ -92,24 +95,143 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 		z-index: 100;
 		background-color: var(--white);
 		border-bottom: 1px solid var(--border-color);
-		/* paddi ng: 0 3rem; */
+
+		@media screen and (max-width: 575px) {
+			position: relative;
+		}
 		
 		&__inner {
 			display: flex;
 			justify-content: space-between;
 			align-items: stretch;
-			height: 5.625rem;
 		}
 
-		.logo img {
-			display: block;
-			height: 100%;
+		.logo {
+			img {
+				display: block;
+				width: auto;
+				height: 5.625rem;
+
+				@media screen and (max-width: 575px) {
+					height: 5rem;
+				}
+			}
+		}
+
+		@media screen and (max-width: 1399px) {
+			.container {
+				max-width: unset;
+				padding: 0.25rem 1rem;
+			}
+		}
+		@media screen and (max-width: 1199px) {
+		}
+		@media screen and (max-width: 767px) {
+		}
+		@media screen and (max-width: 575px) {
 		}
 	}
 
+	.menu-button,
+	.close-button {
+		display: none;
+		font-size: 2rem;
+		border: 1px solid var(--border-color);
+		background-color: transparent;
+		width: 3rem;
+		height: 3rem;
+		padding: 0;
+		margin: 0;
+		justify-content: center;
+		align-items: center;
+		align-self: center;
+		cursor: pointer;
+		border-radius: 3px;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 150%;
+			aspect-ratio: 1;
+			border-radius: 100%;
+			background-color: var(--gray-300);
+			transform: translate(-50%,-50%);
+			opacity: 0;
+			z-index: 0;
+		}
+		&:hover::before {
+			animation: shadow-in 500ms ease-in-out;
+			@keyframes shadow-in {
+				0% { opacity: 0; transform:translate(-50%,-50%) scale(0);  }
+				50% { opacity: .3; transform:translate(-50%,-50%) scale(1); }
+				100% { opacity: 0; transform:translate(-50%,-50%) scale(1); }
+			}
+		}
+
+		@media screen and (max-width: 575px) {
+			display: flex;
+		}
+	}
+	.close-button {
+		position: absolute;
+		top: 0.75rem;
+		right: 0.5rem;
+		z-index: 5;
+		font-size: 1rem;
+		height: 2.5rem;
+    width: 2.5rem;
+		border: 0;
+		border-radius: 50%;
+	}
 	.main-menu {
 		padding: 0.5rem 0;
 		align-self: center;
+		
+		@media screen and (max-width: 575px) {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			z-index: 1000;
+			
+			opacity: 0;
+			background-color: transparent;
+			backdrop-filter: none;
+			pointer-events: none;
+			transition: background-color 500ms ease-in-out, backdrop-filter 500ms ease-in-out, opacity 0s;
+			transition-delay: 0s, 0s, 500ms;
+		
+			&__bar {
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+				min-width: 85vw;
+				background-clip: padding-box;
+				padding: 0;
+				background-color: var(--white);
+				padding: var(--header-height) 0 2rem 0;
+
+				transform: translateX(100%);
+				transition: transform 400ms ease-in-out;
+			}
+			
+			&.open {
+				opacity: 1;
+				pointer-events: all;
+				transition-delay: 0ms;
+				background-color: rgba(0,0,0,.25);
+				backdrop-filter: blur(8px);
+			}
+			&.open &__bar {
+				transform: none;
+			}
+		}
 
 		ul, li {
 			list-style: none;
@@ -120,10 +242,19 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 		&__item-list {
 			display: flex;
 			gap: 0.125rem;
+
+			@media screen and (max-width: 575px) {
+				flex-direction: column;
+				gap: 0;
+			}
 		}
 
 		&__item {
 			position: relative;
+
+			@media screen and (max-width: 575px) {
+				border-bottom: 1px solid var(--border-color);
+			}
 
 			&__link {
 				display: flex;
@@ -136,6 +267,20 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 				text-decoration: none;
 				position: relative;
 
+				@media screen and (max-width: 575px) {
+					padding: 0.75rem 1.25rem 0.75rem 0.625rem;
+					font-size: 1.125rem;
+					border-left: 0.625rem solid transparent;
+					transition: background-color 200ms ease-out;
+					&:hover {
+						background-color: rgba(0,0,0,0.025);
+					}
+
+					svg {
+						display: none;
+					}
+				}
+
 				&::after {
 					content: "";
 					display: block;
@@ -146,18 +291,82 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 					bottom: 0.125rem;
 					background-color: transparent;
 					transition: background-color 200ms ease-out;
+
+					@media screen and (max-width: 575px) {
+						display: none;
+					}
 				}
 			}
-			&:hover:not(&--active) &__link::after {
-				background-color: var(--border-color);
+			&:hover:not(&--active) &__link {
+				&::after {
+					background-color: var(--border-color);
+				}
+				
 			}
-			&--active &__link::after {
-				background-color: var(--page-primary-color);
-				animation: underline 300ms ease-out;
+			&--home {
+				display: none;
+				@media screen and (max-width: 575px) {
+					display: block;
+				}
 			}
-			@keyframes underline {
-				from { transform: scaleX(0); }
-				to { transform: scaleX(1); }
+			&--active &__link {
+				&::after {
+					background-color: var(--page-primary-color);
+					animation: underline 300ms ease-out;
+					@keyframes underline {
+						from { transform: scaleX(0); }
+						to { transform: scaleX(1); }
+					}
+				}
+				@media screen and (max-width: 575px) {
+					border-color: var(--page-primary-color);
+				}
+			}
+			&__submenu-icon {
+				display: none;
+			}
+			&--with-submenu &__submenu-icon {
+				@media screen and (max-width: 575px) {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					position: absolute;
+					height: 2.5rem;
+					width: 2.5rem;
+					top: 0.5rem;
+					right: 0.5rem;
+					border-radius: 50%;
+					transform: rotate(-90deg);
+					transition: background-color 200ms ease-out, transform 200ms ease-out;
+					&:hover {
+						background-color: var(--border-color);
+					}
+				}
+			}
+			&--with-submenu {
+				@media screen and (max-width: 575px) {
+					display: grid;
+					grid-template-rows: auto 0fr;
+					grid-template-areas: 
+						"button"
+						"submenu";
+					transition: grid-template-rows 300ms ease-out;
+	
+					&:hover {
+						grid-template-rows: auto 1fr;
+					}
+				}
+			}
+			&--with-submenu:hover &__submenu-icon,
+			&--active &__submenu-icon {
+				@media screen and (max-width: 575px) {
+					transform: none;
+				}
+			}
+			&--active {
+				@media screen and (max-width: 575px) {
+					grid-template-rows: auto 1fr;
+				}
 			}
 		}
 
@@ -165,18 +374,26 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 		&__submenu {
 			position: absolute;
 			background-color: var(--white);
-
 			display: none;
 			flex-direction: column;
 			min-width: max(100%, 180px);
 			padding: 1rem 0.5rem;
 			border-radius: 5px;
 			overflow: hidden;
-
 			box-shadow: 0 4px 12px -6px rgba(0,0,0,.65);
+
+			@media screen and (max-width: 575px) {
+				display: flex;
+				position: relative;
+				box-shadow: none;
+				border-radius: 0;
+				grid-area: submenu;
+			}
 
 			&__item {
 				position: relative;
+
+				
 
 				&__link {
 					display: block;					
@@ -186,6 +403,14 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 					text-decoration: none;
 					position: relative;
 					transition: background-color 100ms ease-out;
+
+					@media screen and (max-width: 575px) {
+						padding: 0.75rem 1.25rem 0.75rem 0.625rem;
+						font-size: 1.125rem;
+						border-left: 0.625rem solid transparent;
+						background-color: rgba(0,0,0,0.025);
+						
+					}
 				}
 				&:not(&--active):hover &__link {
 					background-color: var(--border-color);
@@ -194,16 +419,26 @@ const pathname = new URL(Astro.request.url).pathname; // Usar esto para active
 					background-color: var(--page-primary-color);
 					color: var(--page-contrasting-color);
 				}
+				
 			}
 		}
 
 		&__item--with-submenu:hover > &__submenu {
 			display: flex;
 			animation: submenu-in 200ms ease-in-out;
+			@media screen and (max-width: 575px) {
+				animation: none;
+			}
 		}
 		@keyframes submenu-in {
 			from { transform: translateX(0.5rem); opacity: 0; }
 			to { transform: translateX(0); opacity: 1; }
+		}
+
+		&__item--active &__submenu {
+			@media screen and (max-width: 575px) {
+				display: block;
+			}
 		}
 	}
 </style>

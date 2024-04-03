@@ -6,39 +6,39 @@ interface PageData {
 
 const cissyrMenu:Array<PageData> = [
   {
-    slug: '/centro-de-salud-sexual-y-reproductiva/somos/',
+    slug: '/centro-de-salud-sexual-y-reproductiva/somos',
     title: 'Somos',
   },
   {
-    slug: '/centro-de-salud-sexual-y-reproductiva/servicios/',
+    slug: '/centro-de-salud-sexual-y-reproductiva/servicios',
     title: 'Servicios',
   },
   {
-    slug: '/centro-de-salud-sexual-y-reproductiva/contacto/es/',
+    slug: '/centro-de-salud-sexual-y-reproductiva/contacto/es',
     title: 'Contacto (ES)',
   },
   {
-    slug: '/centro-de-salud-sexual-y-reproductiva/contacto/pr/',
+    slug: '/centro-de-salud-sexual-y-reproductiva/contacto/pr',
     title: 'Contato (PR)',
   },
 ];
 
 const mainMenu:Array<PageData> = [
   {
-    slug: '/nosotrxs/',
+    slug: '/nosotrxs',
     title: 'Nosotrxs',
   },
   {
-    slug: '/centro-de-salud-sexual-y-reproductiva/',
+    slug: '/centro-de-salud-sexual-y-reproductiva',
     title: 'CISSYR',
     submenu: cissyrMenu,
   },
   {
-    slug: '/medios/',
+    slug: '/medios',
     title: 'Medios',
   },
   {
-    slug: '/contacto/',
+    slug: '/contacto',
     title: 'Contacto',
   }
 ];

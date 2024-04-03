@@ -11,7 +11,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -62,6 +62,8 @@ const { title } = Astro.props;
 		--font-weight-regular: 400;
 		--font-weight-medium: 500;
 		--font-weight-bold: 700;
+
+		--header-height: 90px;
 	}
 	html {
 		font: 400 100%/1.5 'Roboto', system-ui, sans-serif;
@@ -81,8 +83,24 @@ const { title } = Astro.props;
 		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
-		padding-left: 0.75rem;
-		padding-right: 0.75rem;
+		padding-left: 40px;
+		padding-right: 40px;
+		box-sizing: content-box;
+
+		@media screen and (max-width: 1399px) {
+			max-width: 1080px;
+		}
+		@media screen and (max-width: 1199px) {
+			max-width: 720px;
+		}
+		@media screen and (max-width: 767px) {
+			max-width: 540px;
+		}
+		@media screen and (max-width: 575px) {
+			max-width: unset;
+			padding-left: 24px;
+			padding-right: 24px;
+		}
 	}
 
 	.reading-container {
