@@ -63,4 +63,13 @@ interface Props {
 		--sc-map-position-to: 1; /* customizable */
 		--sc-new-position: calc(var(--sc-map-position-from) + calc(var(--sc-position) * calc(var(--sc-map-position-to) - var(--sc-map-position-from)))); /* automatic */
 	}
+	@media (prefers-reduced-motion) {
+		.sc-map-position {
+			--sc-new-position: calc(calc(var(--sc-map-position-from) + var(--sc-map-position-to)) / 2);
+		}
+		.sc-activable {
+			transition: none !important;
+			animation: none !important;
+		}
+	}
 </style>
