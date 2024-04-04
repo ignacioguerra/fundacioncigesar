@@ -1,5 +1,6 @@
 ---
 import mainMenu from '../constants/pages';
+import SocialIconLinks from './SocialIconLinks.astro';
 import IconArrowDown from './icons/IconArrowDown.astro';
 import IconClose from './icons/IconClose.astro';
 import IconMenu from './icons/IconMenu.astro';
@@ -64,6 +65,14 @@ const pathname = new URL(Astro.request.url).pathname;
 					<button class="close-button" id="menu-closer">
 						<IconClose />
 					</button>
+					<div class="main-menu__social-icons">
+						<SocialIconLinks
+							instagram="https://www.instagram.com/fundacion.cigesar/"
+							facebook="https://www.facebook.com/Centro-Integral-de-Salud-Sexual-y-Reproductiva-376361479429154"
+							youtube="https://www.youtube.com/channel/UCgWxgJXBpjzVWy8JmQ2rpYA"
+							x="https://x.com/cigesar"
+						/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -219,6 +228,10 @@ const pathname = new URL(Astro.request.url).pathname;
 
 				transform: translateX(100%);
 				transition: transform 400ms ease-in-out;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
 			}
 			
 			&.open {
@@ -436,6 +449,16 @@ const pathname = new URL(Astro.request.url).pathname;
 		}
 
 		&__item--active &__submenu {
+			@media screen and (max-width: 575px) {
+				display: block;
+			}
+		}
+
+		&__social-icons {
+			padding: 0 0.625rem;
+			display: none;
+			color: var(--accent-color-1);
+
 			@media screen and (max-width: 575px) {
 				display: block;
 			}

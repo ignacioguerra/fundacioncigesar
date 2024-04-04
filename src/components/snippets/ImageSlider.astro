@@ -25,12 +25,16 @@ interface Props {
 		private _nextButton:HTMLElement
 		private _scrollableArea:HTMLElement
 		private _autoplay:'none'|'next'|'prev'
+		private _stepSize:number
 
 		constructor() {
 			super()
 			this._scrollableArea = this.querySelector('.image-slider__inner')
 			this._prevButton = this.querySelector('.image-slider__button--prev')
 			this._nextButton = this.querySelector('.image-slider__button--next')
+			
+			const innerItem = this.querySelector('.image-slider__inner > *')
+			this._stepSize = innerItem.clientWidth
 
 			this._prevButton.addEventListener('click', () => {
 				this._prev()
@@ -42,6 +46,10 @@ interface Props {
 			})
 			this._scrollableArea.addEventListener('scroll', this._updateButtons.bind(this), { passive: true })
 			this._updateButtons()
+			
+			this._scrollableArea.addEventListener('touchmove', () => {
+				this._autoplay = 'none'
+			}, { once: true })
 
 			this._autoplay = 'next'
 			setTimeout(this._autoRun.bind(this), Math.random() * 200)
@@ -53,11 +61,11 @@ interface Props {
 			setTimeout(this._autoRun.bind(this), 2000 + Math.random() * 500)
 		}
 		private _prev() {
-			const stepSize = this._scrollableArea.offsetWidth / 3
+			const stepSize = this._stepSize // this._scrollableArea.offsetWidth / 3
 			this._scrollableArea.scrollLeft -= stepSize;
 		}
 		private _next() {
-			const stepSize = this._scrollableArea.offsetWidth / 3
+			const stepSize = this._stepSize // this._scrollableArea.offsetWidth / 3
 			this._scrollableArea.scrollLeft += stepSize;
 		}
 		private _updateButtons() {
@@ -80,6 +88,10 @@ interface Props {
 		display: block;
 		--slides: 1.75;
 		--gap: 1px;
+
+		@media screen and (max-width: 575px) {
+			--slides: 0.6;
+		}
 
 		&__inner {
 			display: flex;
@@ -115,6 +127,10 @@ interface Props {
 			/* opacity: .75; */
 			backdrop-filter: blur(8px);
 			transition: opacity 200ms ease-in-out;
+
+			@media screen and (max-width: 575px) {
+				display: none;
+			}
 
 			&:hover {
 				background-color: var(--page-contrasting-color);

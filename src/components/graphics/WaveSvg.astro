@@ -19,5 +19,10 @@ const props = Astro.props
 		transform: translateX(-50%) scaleY(-1);
 		fill: var(--white);
 		z-index: 2;
+
+		@media screen and (max-width: 575px) {
+			width: calc(300% + 1.3px);
+			height: 26px;
+		}
 	}
 </style>

@@ -124,6 +124,10 @@ import YoutubeBackground from '../components/blocks/YoutubeBackground.astro';
 		margin: 2rem 0;
 		column-count: 2;
 		gap: 3rem;
+
+		@media screen and (max-width: 575px) {
+			column-count: auto;
+		}
 	}
 
 	.youtube-video-modal {
