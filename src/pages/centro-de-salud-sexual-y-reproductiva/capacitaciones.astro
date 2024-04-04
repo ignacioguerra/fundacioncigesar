@@ -23,6 +23,7 @@ import LinkButton from '../../components/snippets/LinkButton.astro';
 import MiniCollage from '../../components/snippets/MiniCollage.astro';
 import InnerMenu from '../../components/InnerMenu.astro';
 import { cissyrMenu, mainMenu } from "../../constants/pages";
+import WhatsappBubble from '../../components/WhatsappBubble.astro';
 
 const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 ---
@@ -97,6 +98,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 	</main>
 	<Footer />
+	<WhatsappBubble phoneNumber="5491161874697" />
 </Layout>
 
 <style>
