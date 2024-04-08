@@ -79,4 +79,23 @@ const { title, imageUrl } = Astro.props;
 			}
 		}
 	}
+	@media screen and (max-width: 575px) {
+		.method {
+			&__inner {
+			align-items: flex-start;
+			}
+			&__image {
+			width: 8rem;
+			margin-top: -0.5rem;
+			}
+			&__info {
+			gap: 0;
+			}
+		/*	
+		&:nth-child(even) &__inner {
+				flex-direction: row-reverse;
+			}
+		*/	
+		}	
+	}
 </style>
