@@ -122,4 +122,26 @@ const { title, pictureUrl, source, abstract, linkUrl, youtubeVideoId } = Astro.p
 			}
 		}
 	}
+	@media screen and (max-width: 575px) {
+        .press-article {
+            padding: 3rem;
+
+            &__content {
+                text-wrap: unset;
+        }
+
+            &__picture {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: auto;
+                margin: 2rem 0;    
+
+            img {
+
+            }
+        }
+        }           
+    }
+	
 </style>
