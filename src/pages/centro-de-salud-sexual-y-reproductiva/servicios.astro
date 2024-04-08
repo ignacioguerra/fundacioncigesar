@@ -248,9 +248,6 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			/* margin: 0; */
 		/* } */
 		}
-
-		
-
 		
 		&__tab-content {
 				position: relative;
@@ -296,7 +293,20 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		}
 
 	}
-
+	@media screen and (max-width: 575px){
+		.services {
+			&__tab-content {
+			&__inner {
+				display: flex;
+				flex-direction: column;
+				padding: 2rem 4rem 2rem 2rem;
+			}
+			&__image {
+				width: 100%;
+			}
+			}
+		}
+	}
 
 	.image-with-text {
 		display: flex;
