@@ -107,7 +107,16 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			gap: 3rem;
 		}
 	}
-
+	@media screen and (max-width: 575px){
+		.contact-block {
+			flex-direction: column-reverse;
+			padding: 1rem 0 3rem;
+			&__map {
+			max-width: unset;
+			}
+		}
+	}
+	
 	section {
 		padding: 4rem 0;
 		background-color: var(--gray-100);
