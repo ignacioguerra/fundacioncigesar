@@ -32,6 +32,13 @@ const { title, small } = Astro.props;
 			margin-bottom: 1rem;
 			padding: 6.5rem;
 		}
+		@media screen and (max-width: 575px) {
+			&__inner {
+			position: relative;
+			margin-bottom: 1rem;
+			padding: 6.5rem 3.875rem;
+		}
+		}
 
 		&--small &__inner {
 			padding: 6.5rem 4rem;

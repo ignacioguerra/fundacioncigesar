@@ -133,4 +133,26 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 			}
 		}
 	}
+	@media screen and (max-width: 575px) {
+		.profile {
+			flex-direction: column-reverse;
+			
+			&__content {
+				margin: 1rem -0.5rem;
+				padding: 8rem 3.875rem 6rem 3.875rem;
+			}
+
+			&__picture  {
+				margin-bottom: -7rem;
+				margin-left: 3rem;
+				width: 40%;
+
+				img {
+					margin: 0;
+				}
+			
+			}
+		}
+			
+	}
 </style>
