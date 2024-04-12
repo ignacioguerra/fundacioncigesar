@@ -172,6 +172,11 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			border: 1px solid var(--gray-400);
 			border-radius: 8px;
 
+			@media screen and (max-width: 575px) {
+				font-size: 1.4375rem;
+				padding: 4rem 1.5rem 6rem;
+			}
+
 			p {
 				margin: 0;
 			}
@@ -182,16 +187,22 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 		display: flex;
 		gap: 3rem;
 
+		@media screen and (max-width: 575px){
+			gap: 1rem;
+			flex-direction: column;
+		}
+
 		&__title {
 			font-size: 2rem;
 			margin: 0 0 2rem;
+
+			@media screen and (max-width: 575px){
+				font-size: 1.75rem;
+	   			line-height: 1.35;
+			}
 		}
 	}
-	@media screen and (max-width: 575px){
-		.cards {
-			gap: 1rem;
-		}
-	}
+	
 
 	.image-with-text {
 		display: flex;
@@ -229,6 +240,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 		&__text {
 			h2 {
 				margin: 2rem 0 1rem 0;
+				font-size: 2.25rem;
 			}
 
 			&__link {
@@ -258,6 +270,12 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			text-align: center;
 			font-weight: var(--font-weight-medium);
 			color: var(--white);
+			
+			@media screen and (max-width: 575px) {
+				font-size: 1.75rem;
+				line-height: 1.5;
+			}
+			
 		}
 	}
 

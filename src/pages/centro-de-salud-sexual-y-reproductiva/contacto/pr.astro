@@ -111,8 +111,14 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		.contact-block {
 			flex-direction: column-reverse;
 			padding: 1rem 0 3rem;
+
 			&__map {
-			max-width: unset;
+			/*max-width: unset;*/
+			display: none;
+			}
+			
+			&__form {
+			padding: 2.5rem 1.5rem 4rem 1.5rem;
 			}
 		}
 	}

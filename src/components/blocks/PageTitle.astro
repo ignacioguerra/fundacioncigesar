@@ -66,6 +66,11 @@ const { title, backTo } = Astro.props;
 				height: 1px;
 				bottom: 0;
 			}
+			@media screen and (max-width: 575px){
+				font-size: 1.75rem;
+    			line-height: 1.35;
+				padding: 0 0 1rem;
+			}
 		}
 
 		&__breadcrumb {
@@ -77,6 +82,10 @@ const { title, backTo } = Astro.props;
 			ul {
 				display: flex;
 			} */
+			@media screen and (max-width: 575px){
+				margin-bottom: 2rem;
+			}
+
 			> a, > span {
 				display: flex;
 				gap: 0.25rem;

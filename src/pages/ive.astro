@@ -183,7 +183,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			</div>
 		</section>
 
-		<section class="light -no-gap">
+		<section class="light -no-gap xs-top-padding-off">
 			<div class="container">
 				<h2>¿Qué es <dfn><abbr title="Aspiración Manual Endo Uterina">AMEU</abbr></dfn>?</h2>
 				<YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} />
@@ -200,6 +200,13 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	:root {
 		--page-primary-color: var(--accent-color-1);
 		--page-contrasting-color: var(--white);
+	}
+	.xs-top-padding-off{
+		@media screen and (max-width: 575px) {
+			padding-top: 0;
+			margin-top: -3rem;
+		}
+
 	}
 
 	.card-column {
@@ -242,12 +249,24 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				flex: 1;
 				width: 50%;
 			}
+			@media screen and (max-width: 575px) {
+				flex-direction: column;
+
+				& > :global(*) {
+				width: unset;
+				margin-bottom: 2rem;
+			}
+			}
 		}
 	}
 
 	.stages {
 		display: flex;
 		gap: 90px;
+		@media screen and (max-width: 575px) {
+			flex-direction: column;
+
+		}
 
 		&__title {
 			flex: 2;
@@ -262,6 +281,12 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				--sc-map-position-from: 6rem;
 				--sc-map-position-to: 0rem;
 				transform: translate3d(0,var(--sc-new-position),0);
+
+				@media screen and (max-width: 575px) {
+					--sc-map-position-from: 0rem;
+					font-size: 1.75rem;
+   					line-height: 1.35;
+				}
 			}
 		}
 
@@ -280,6 +305,10 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				bottom: -4rem;
 				left: 9rem;
 				opacity: .25;
+
+				@media screen and (max-width: 575px) {
+					left: 7rem;
+				}
 			}
 		}
 
@@ -298,6 +327,10 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			align-items: flex-start;
 			gap: 45px;
 			will-change: transform;
+
+			@media screen and (max-width: 575px) {
+					gap: 26px;
+				}
 
 			&.sc-was-active {
 				animation: stage-item-in 600ms ease-in-out;
@@ -328,6 +361,10 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				--sc-map-position-to: -1rem;
 				transform: translate3d(0,var(--sc-new-position),0);
 
+				@media screen and (max-width: 575px) {
+					width: 7rem;
+				}
+
 				&::after {
 					content: "";
 					display: block;
@@ -347,6 +384,11 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				font-weight: var(--font-weight-light);
 				line-height: 1.75;
 				margin: 0;
+
+				@media screen and (max-width: 575px) {
+					font-size: 1.125rem;
+					line-height: 1.6;
+				}
 			}
 		}
 

@@ -23,6 +23,7 @@ const { menu } = Astro.props;
 <style>
 	.inner-menu {
 		margin: 2rem 0 0;
+
 		ul, li {
 			margin: 0;
 			padding: 0;
@@ -33,6 +34,11 @@ const { menu } = Astro.props;
 			display: flex;
 			/* justify-content: flex-end; */
 			gap: 0.5rem;
+
+			@media screen and (max-width: 575px){
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+			}	
 		}
 
 		a {
@@ -40,9 +46,9 @@ const { menu } = Astro.props;
 			padding: 0.375rem 1rem;
 			text-decoration: none;
 			color: inherit;
-
 			border: 1px solid var(--gray-400);
 			border-radius: 6px;
-		}
+		}	
 	}
+	
 </style>
