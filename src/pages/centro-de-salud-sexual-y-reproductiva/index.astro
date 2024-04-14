@@ -159,6 +159,15 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			padding: 0 2rem;
 			background-color: var(--gray-100);
 			width: fit-content;
+
+			@media screen and (max-width: 767px) {
+				margin: -1rem 2.5em;
+   				padding: 0 1rem;
+			}
+			@media screen and (max-width: 575px) {
+				margin: -1rem 2.5em;
+   				padding: 0 1rem;
+			}
 		}
 
 		blockquote {
@@ -172,7 +181,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			border: 1px solid var(--gray-400);
 			border-radius: 8px;
 
-			@media screen and (max-width: 575px) {
+			@media screen and (max-width: 767px) {
 				font-size: 1.4375rem;
 				padding: 4rem 1.5rem 6rem;
 			}
@@ -187,7 +196,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 		display: flex;
 		gap: 3rem;
 
-		@media screen and (max-width: 575px){
+		@media screen and (max-width: 767px){
 			gap: 1rem;
 			flex-direction: column;
 		}
@@ -196,7 +205,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			font-size: 2rem;
 			margin: 0 0 2rem;
 
-			@media screen and (max-width: 575px){
+			@media screen and (max-width: 767px){
 				font-size: 1.75rem;
 	   			line-height: 1.35;
 			}
@@ -207,6 +216,12 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 	.image-with-text {
 		display: flex;
 		padding: 2rem 0 3rem;
+
+		@media screen and (max-width: 767px){
+			flex-direction: column-reverse;
+			padding: 1rem 0 3rem;
+		}
+
 		&__image {
 			flex: 5;
 		}
@@ -217,41 +232,34 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			flex-direction: column;
 			justify-content: flex-start; */
 			position: relative;
+			
 			h2 {
 				font-size: 2.75rem;
 				line-height: 1.125;
 				text-wrap: balance;
 				/* text-align: right; */
 				margin: 6rem 0 0;
+
+				@media screen and (max-width: 767px){
+					margin: 2rem 0 1rem 0;
+					font-size: 2.25rem;
+				}
 			}
 
 			&__link {
 				position: absolute;
 				top: 50%;
 				left: 3rem;
+
+				@media screen and (max-width: 767px){
+					position: relative;
+					top: unset;
+					left: unset;
+					margin-bottom: 3rem;
+					margin-left: -.75rem;
+				}
 			}
 		}
-	}
-	@media screen and (max-width: 575px){
-		.image-with-text {
-			flex-direction: column-reverse;
-			padding: 1rem 0 3rem;
-
-		&__text {
-			h2 {
-				margin: 2rem 0 1rem 0;
-				font-size: 2.25rem;
-			}
-
-			&__link {
-				position: relative;
-				top: unset;
-				left: unset;
-				margin-bottom: 3rem;
-    			margin-left: -.75rem;
-			}
-		}
-	}
 	}
 	
 	.big-text {
@@ -271,7 +279,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			font-weight: var(--font-weight-medium);
 			color: var(--white);
 			
-			@media screen and (max-width: 575px) {
+			@media screen and (max-width: 767px) {
 				font-size: 1.75rem;
 				line-height: 1.5;
 			}
