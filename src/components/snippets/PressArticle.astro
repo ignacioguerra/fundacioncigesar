@@ -45,10 +45,24 @@ const { title, pictureUrl, source, abstract, linkUrl, youtubeVideoId } = Astro.p
 		position: relative;
 		min-height: calc(400px);
 
+		@media screen and (max-width: 1199px) and (min-width: 768px){
+			padding: 2rem 1.5rem 3rem;
+			padding-left: calc(280px + 2rem);
+			min-height: calc(330px);
+			}
+
+		@media screen and (max-width: 767px) {
+            padding: 1.5rem 1.5rem 4rem 1.5rem;
+		}
+
 		&__content {
 			max-width: 600px;
 			text-wrap: balance;
 			border-radius: var(--border-radius);
+
+			@media screen and (max-width: 767px) {
+                text-wrap: unset;
+       		}
 		}
 
 		&__title {
@@ -84,6 +98,21 @@ const { title, pictureUrl, source, abstract, linkUrl, youtubeVideoId } = Astro.p
 			--sc-map-position-from: 3rem;
 			--sc-map-position-to: -3rem;
 			transform: translate3d(0,var(--sc-new-position),0);
+			
+			@media screen and (max-width: 1199px) and (min-width: 768px){
+				width: 260px;
+				height: 260px;
+				top:1.5rem;
+				left:1.5rem;
+			}
+
+			@media screen and (max-width: 767px) {
+                position: relative;
+                top: auto;
+                left: auto;
+                width: auto;
+                margin: 2rem 0;   
+			}
 
 			img {
 				display: block;
@@ -121,25 +150,5 @@ const { title, pictureUrl, source, abstract, linkUrl, youtubeVideoId } = Astro.p
 				}
 			}
 		}
-	}
-	@media screen and (max-width: 575px) {
-        .press-article {
-            padding: 1.5rem 1.5rem 4rem 1.5rem;
-
-            &__content {
-                text-wrap: unset;
-       		}
-
-            &__picture {
-                position: relative;
-                top: auto;
-                left: auto;
-                width: auto;
-                margin: 2rem 0;    
-
-            img {}
-        	}
-        }           
-    }
-	
+	}	
 </style>
