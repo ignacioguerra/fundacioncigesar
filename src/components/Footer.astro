@@ -9,16 +9,16 @@ const year = new Date().getFullYear()
 <footer class="footer">
 	<div class="container">
 		<div class="footer__inner">
-			<div class="footer__logo">
+			<div class="footer__logo area1">
 				<img src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/02/002-scaled-298x126.jpg" alt="Fundación Cigesar">
 			</div>
-			<section class="footer__contact-data">
+			<section class="footer__contact-data area2">
 				<h3>Contactanos</h3>
 				<div class="footer__contact-data__info">
 					<ContactData />
 				</div>
 			</section>
-			<section class="footer__social-links">
+			<section class="footer__social-links area4">
 				<h3>Seguinos</h3>
 				<div class="footer__social-links__links">
 					<SocialIconLinks
@@ -61,10 +61,13 @@ const year = new Date().getFullYear()
 			display: block;
 			max-height: 200px;
 			width: auto;
-
+			@media screen and (max-width: 767px) {
+				max-width: 100%;
+			}
 			@media screen and (max-width: 575px) {
 				max-width: 60vw;
 				height: auto;
+				max-width: 100%;
 			}
 		}
 
@@ -90,11 +93,18 @@ const year = new Date().getFullYear()
 				margin: 0;
 				margin-bottom: 0.25rem;
 				@media screen and (max-width: 575px) {
+					/*display: none;*/
+				}
+				@media screen and (max-width: 989px) {
 					display: none;
+					text-align: left;
 				}
 			}
 			&__links {
 				color: var(--accent-color-1);
+				@media screen and (max-width: 989px) {
+					margin: 0 -.5rem;
+				}
 			}
 		}	
 		
@@ -104,13 +114,28 @@ const year = new Date().getFullYear()
 			align-items: flex-start;
 			padding: 3rem 0;
 			gap: 60px;
+		
+			/* height: 6rem; */
 			
+			@media screen and (max-width: 1199px) {
+				gap: 40px;
+			}
+			@media screen and (max-width: 989px) {
+				display: grid;
+				grid-template-columns: 1fr 2fr;
+				grid-template-areas:
+					"area1 area2"
+					". area4";
+			}
+			@media screen and (max-width: 767px) {
+				grid-template-columns: 40% 60%;
+			}
 			@media screen and (max-width: 575px) {
+				display: flex;
 				flex-direction: column;
 				align-items: center;
 				gap: 2.5rem;
 			}
-			/* height: 6rem; */
 		}
 
 		
@@ -156,12 +181,28 @@ const year = new Date().getFullYear()
 				}
 			}
 		}
+		.area1{
+			grid-area: area1;
+		}
+		.area2{
+			grid-area: area2;
+		}
+		.area4{
+			grid-area: area4;
+		}
 	}
 
 	@media screen and (max-width: 1399px) {
+		.container {
+		max-width: unset;
+    	padding: 0.25rem 3rem;
+		}
 	}
 	@media screen and (max-width: 1199px) {
+
 	}
+	
+
 	@media screen and (max-width: 767px) {
 	}
 	@media screen and (max-width: 575px) {
