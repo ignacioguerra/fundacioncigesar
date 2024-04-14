@@ -13,5 +13,6 @@ export default defineConfig({
     '/obstetricia': '/centro-de-salud-sexual-y-reproductiva/servicios/#obstetricia',
     '/psicologia': '/centro-de-salud-sexual-y-reproductiva/servicios/#psicologia',
     '/capacitaciones': '/centro-de-salud-sexual-y-reproductiva/capacitaciones/',
+    '/nosotrxs': '/nosotros',
   }
 });
