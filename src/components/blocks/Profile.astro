@@ -32,7 +32,7 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 			{ websiteUrl && <LinkButton style="link" text={ websiteTitle || websiteUrl } href={websiteUrl} external><IconShare /></LinkButton> }
 		</div>
 		<div class="profile__picture">
-			{ pictureUrl && <img src={ pictureUrl } alt={ name }> }
+			{ pictureUrl && <img src={ pictureUrl } alt={ name }/> }
 		</div>
 	</article>
 </ScrollContext>
@@ -43,13 +43,29 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 		flex-direction: row-reverse;
 		gap: 0;
 		margin-bottom: 2rem;
-
 		--sc-map-position-from: 4rem;
 		--sc-map-position-to: -2rem;
+
+		@media screen and (max-width: 767px) {
+			flex-direction: column-reverse;
+			position: relative;
+			margin-top: 6rem;
+		}
 
 		&__picture {
 			width: 50%;
 			max-width: 260px;
+
+			@media screen and (max-width: 1199px) {
+				width: 32%;
+			}
+			@media screen and (max-width: 767px) {
+				margin-bottom: -4rem;
+				margin-left: 1rem;
+				width: 40%;
+				position: absolute;
+				top: -6rem;
+			}
 
 			img {
 				display: block;
@@ -58,6 +74,10 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 				object-fit: cover;
 				margin: 3rem auto 5rem;
 				transform: translate3d(0,var(--sc-new-position),0);
+
+				@media screen and (max-width: 767px) {
+					margin: 0;
+				}
 			}
 		}
 
@@ -67,6 +87,14 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 			padding: 3rem;
 			margin-left: -3rem;
 			padding-left: 7rem;
+
+			@media screen and (max-width: 1199px) {
+				padding-left: 5rem;
+			}
+			@media screen and (max-width: 767px) {
+				margin: 0 -0.5rem;
+				padding: 13rem 1.5rem 5rem;
+			}
 		}
 
 		&__header {
@@ -132,28 +160,5 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 				}
 			}
 		}
-	}
-	@media screen and (max-width: 575px) {
-		.profile {
-			flex-direction: column-reverse;
-			
-			&__content {
-				margin: 0 -0.5rem;
-				/*padding: 8rem 3.875rem 6rem 3.875rem;*/
-				padding: 5.5rem 1.5rem;
-			}
-
-			&__picture  {
-				margin-bottom: -4rem;
-				margin-left: 1rem;
-				width: 40%;
-
-				img {
-					margin: 0;
-				}
-			
-			}
-		}
-			
 	}
 </style>
