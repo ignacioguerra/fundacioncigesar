@@ -217,6 +217,8 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 		display: flex;
 		padding: 2rem 0 3rem;
 
+		padding-left: 2rem;
+
 		@media screen and (max-width: 767px){
 			flex-direction: column-reverse;
 			padding: 1rem 0 3rem;
@@ -240,6 +242,11 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 				/* text-align: right; */
 				margin: 6rem 0 0;
 
+				@media screen and (max-width: 1199px) and (min-width: 768px){
+					font-size: 2.5rem;
+					padding-left: 2rem;
+				}
+
 				@media screen and (max-width: 767px){
 					margin: 2rem 0 1rem 0;
 					font-size: 2.25rem;
@@ -250,6 +257,12 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 				position: absolute;
 				top: 50%;
 				left: 3rem;
+
+				@media screen and (max-width: 1199px) and (min-width: 768px){
+					top: 60%;
+   					left: 1rem;
+				}
+				
 
 				@media screen and (max-width: 767px){
 					position: relative;

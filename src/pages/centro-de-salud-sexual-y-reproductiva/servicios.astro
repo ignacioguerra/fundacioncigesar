@@ -205,9 +205,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 			&:last-child {
 				margin-right: 1.75rem;
-			} */
-
-			
+			} */			
 
 			padding: 1.25rem 1.5rem;
 			/* height: 300px; */
@@ -222,6 +220,10 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			margin: 0;
 
 			cursor: pointer;
+
+			@media screen and (max-width: 1199px) and (min-width: 756px) {
+				padding: 1rem 1.25rem;
+			}
 			
 			&.current {
 				border-bottom-color: var(--white);
@@ -264,12 +266,30 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 				gap: 3rem;
 				padding: 2rem 4rem 2rem 2rem;
 				align-items: center;
+
+				@media screen and (max-width: 1199px) and (min-width: 576px){
+					gap: 2rem;
+					padding: 2rem 2rem 2.5rem 2rem;
+					align-items: flex-start;
+				}
+
+				@media screen and (max-width: 575px){
+					display: flex;
+					flex-direction: column;
+					padding: 1.5rem 1.5rem 2rem;
+				}
 			}
 
 			&__image {
 				flex-basis: 360px;
 				/* transform: translateY(2rem); */
 				/* flex: 1; */
+				@media screen and (max-width: 1199px) and (min-width: 576px){
+					flex-basis: 260px;
+				}
+				@media screen and (max-width: 575px){
+					width: 100%;
+				}
 			}
 
 			&__text {
@@ -292,20 +312,6 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			to { opacity: 1; }
 		}
 
-	}
-	@media screen and (max-width: 575px){
-		.services {
-			&__tab-content {
-			&__inner {
-				display: flex;
-				flex-direction: column;
-				padding: 1.5rem 1.5rem 2rem;
-			}
-			&__image {
-				width: 100%;
-			}
-			}
-		}
 	}
 
 	.image-with-text {
