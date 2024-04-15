@@ -17,6 +17,11 @@ import ScrollContext from "./ScrollContext.astro";
 		font-weight: var(--font-weight-bold);
 		position: relative;
 		padding: 0 0.25rem;
+		
+		@media screen and (max-width: 575px) {
+			line-height: 1.35;
+    		padding: 0.5rem;
+		}
 
 		span {
 			position: relative;
