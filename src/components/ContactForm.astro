@@ -1,43 +1,68 @@
 ---
 import ScrollContext from "./snippets/ScrollContext.astro"
 
+interface Props {
+	web3formsAccessKey:string;
+	formName:string;
+	subjectText?:string;
+	sendButtonText?:string;
+	nameFieldDisplayText?:string;
+	phoneFieldDisplayText?:string;
+	emailFieldDisplayText?:string;
+	messageFieldDisplayText?:string;
+	feedbackSendingMessage?:string;
+	feedbackSendSuccessMessage?:string;
+	feedbackSendErrorMessage?:string;
+}
 
+const {
+	web3formsAccessKey,
+	formName,
+	subjectText = 'Contacto Web: Nuevo mensaje recibido',
+	sendButtonText = 'Enviar',
+	nameFieldDisplayText = 'Nombre',
+	phoneFieldDisplayText = 'Teléfono',
+	emailFieldDisplayText = 'Correo electrónico',
+	messageFieldDisplayText = 'Consulta',
+	feedbackSendingMessage = 'Enviando...',
+	feedbackSendSuccessMessage = 'Mensaje enviado.',
+	feedbackSendErrorMessage = 'Error al enviar el mensaje. Intente nuevamente o escríbanos a ',
+} = Astro.props;
 
-const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
 ---
 
 <div class="contact-form">
 	<form id="contact-form" class="contact-form__form" action="https://api.web3forms.com/submit" method="POST">
 		<input type="hidden" name="access_key" value={web3formsAccessKey}>
-		<input type="hidden" name="subject" value="Nuevo mensaje recibido" id="contact-subject">
-		<input type="hidden" name="from_name" value="Impronta - Contacto Web">
+		<input type="hidden" name="subject" value={subjectText} id="contact-subject">
+		<input type="hidden" name="from_name" value={formName}>
 		<ScrollContext>
-			<input class="sc-activable" placeholder="Nombre" type="text" name="full-name" id="contact-full-name" required>
+			<input class="sc-activable" placeholder={`${nameFieldDisplayText}*`} type="text" name={nameFieldDisplayText} id="contact-full-name" required>
 		</ScrollContext>
 		<ScrollContext>
-			<input class="sc-activable" placeholder="Teléfono" type="text" name="phone" id="contact-full-name">
+			<input class="sc-activable" placeholder={phoneFieldDisplayText} type="text" name={phoneFieldDisplayText} id="contact-full-name">
 		</ScrollContext>
 		<ScrollContext>
-			<input class="sc-activable" placeholder="Correo electrónico" type="email" name="email" id="contact-email" required>
+			<input class="sc-activable" placeholder={`${emailFieldDisplayText}*`} type="email" name="email" id="contact-email" required>
 		</ScrollContext>
 		<ScrollContext>
-			<textarea class="sc-activable" placeholder="Consulta" name="message" id="contact-message" rows="10"></textarea>
+			<textarea class="sc-activable" placeholder={`${messageFieldDisplayText}*`} name={messageFieldDisplayText} id="contact-message" rows="10" required></textarea>
 		</ScrollContext>
-		<!-- <ScrollContext> -->
-			<!-- <div class="contact-form__captcha sc-activable h-captcha" data-captcha="true"></div> -->
+		{/*<ScrollContext>
+			<div class="contact-form__captcha sc-activable h-captcha" data-captcha="true"></div>*/}
 			<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-			<input type="hidden" name="from_url" value="" id="contact-from-url">
-		<!-- </ScrollContext> -->
+			<input type="hidden" name="Enviado desde" value="" id="contact-from-url">
+		{ /*</ScrollContext>*/ }
 		<ScrollContext>
 			<div class="contact-form__send sc-activable">
-				<button class="contact-form__send__button sc-activable"><span>Enviar</span></button>
+				<button class="contact-form__send__button sc-activable"><span>{sendButtonText}</span></button>
 				<p class="contact-form__send__feedback" id="contact-feedback"></p>
 			</div>
 		</ScrollContext>
 	</form>
 </div>
 <script src="https://web3forms.com/client/script.js" async defer></script>
-<script>
+<script define:vars={{ feedbackSendingMessage, feedbackSendSuccessMessage, feedbackSendErrorMessage }}>
 	const form = document.getElementById('contact-form')
 	const formResult = document.getElementById('contact-feedback')
 	const fieldFromUrl = document.getElementById('contact-from-url')
@@ -47,15 +72,15 @@ const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
 		fieldFromUrl.value = window.location.origin
 		const formData = new FormData(form)
 		const object = Object.fromEntries(formData)
-		object['subject'] = `Nuevo mensaje de ${object['full-name']}`
+		// object['subject'] = `Nuevo mensaje de ${object['full-name']}`
 		const json = JSON.stringify(object)
 
 		const linkMailto = document.createElement('a')
-		const email = ['contacto','@','improntacomunicacion.ar',].join()
+		const email = ['info','@','fundacioncigesar.org.ar',].join()
 		linkMailto.href = `mailto:${email}?subject=${encodeURI(object['subject'])}&body=${encodeURI(object['message'])}`
 		linkMailto.textContent = email
 
-		formResult.textContent = "Enviando..."
+		formResult.textContent = feedbackSendingMessage
 	
 		fetch('https://api.web3forms.com/submit', {
 			method: 'POST',
@@ -69,27 +94,19 @@ const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
 			let json = await response.json()
 			if (response.status == 200) {
 				form.reset()
-				formResult.textContent = 'Mensaje enviado.'
+				formResult.textContent = feedbackSendSuccessMessage
 				setTimeout(() => {
 					formResult.textContent = ''
 				}, 6000)
 			} else {
-				// console.log(response)
-				// formResult?.textContent = json.message
-				formResult.textContent = 'Error al enviar el mensaje. Intente nuevamente o escríbanos a '
+				formResult.textContent = feedbackSendErrorMessage
 				formResult.append(linkMailto)
 			}
 		})
 		.catch(error => {
-			// console.log(error)
-			formResult.textContent = 'Error al enviar el mensaje. Intente nuevamente o escríbanos a '
+			formResult.textContent = feedbackSendErrorMessage
 			formResult.append(linkMailto)
 		})
-		// .then(function() {
-		// 	setTimeout(() => {
-		// 		formResult.innerHTML = ''
-		// 	}, 3000)
-		// })
 	})
 	</script>
 

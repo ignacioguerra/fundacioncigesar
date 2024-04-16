@@ -11,6 +11,8 @@ import ContactForm from '../components/ContactForm.astro';
 import SocialIconLinks from '../components/SocialIconLinks.astro';
 import ContactData from '../components/ContactData.astro';
 import WhatsappBubble from '../components/WhatsappBubble.astro';
+
+const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
 ---
 
 <Layout title="Contacto – Fundación Cigesar">
@@ -33,7 +35,10 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 							<iframe class="sc-map-position" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.3176236532763!2d-58.56523111090337!3d-34.596128987357844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb94a666b3cc1%3A0x217270cd28113895!2sFundaci%C3%B3n%20CIGESAR!5e0!3m2!1ses-419!2sar!4v1710936079697!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 						<div class="contact-block__form">
-							<ContactForm />
+							<ContactForm
+								web3formsAccessKey={web3formsAccessKey}
+								formName="Fundación Cigesar - Contacto Web"
+							/>
 							<ContactData />
 							<div class="contact-block__form__social">
 								<SocialIconLinks

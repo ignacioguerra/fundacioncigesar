@@ -17,6 +17,7 @@ import InnerMenu from '../../../components/InnerMenu.astro';
 import { cissyrMenu, mainMenu } from "../../../constants/pages";
 import WhatsappBubble from '../../../components/WhatsappBubble.astro';
 
+const web3formsAccessKey = import.meta.env.WEB3FORMS_ACCESS_KEY
 const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 ---
 
@@ -44,7 +45,19 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							<!-- <iframe class="sc-map-position" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.3176236532763!2d-58.56523111090337!3d-34.596128987357844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb94a666b3cc1%3A0x217270cd28113895!2sFundaci%C3%B3n%20CIGESAR!5e0!3m2!1ses-419!2sar!4v1710936079697!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
 						</div>
 						<div class="contact-block__form">
-							<ContactForm />
+							<ContactForm
+								web3formsAccessKey={web3formsAccessKey}
+								formName="Fundación Cigesar - CISSYR Contato (PR)"
+								subjectText="CISSYR Contato (PR): Nova mensagem recebida",
+								sendButtonText="Mandar",
+								nameFieldDisplayText="Nome",
+								phoneFieldDisplayText="Telefone",
+								emailFieldDisplayText="Correio eletrônico",
+								messageFieldDisplayText="Consulta"
+								feedbackSendingMessage="Enviando...",
+								feedbackSendSuccessMessage="Mensagem enviada.",
+								feedbackSendErrorMessage="Erro ao enviar a mensagem. Tente novamente ou escreva para ",
+							/>
 							<WhatsappLink phoneNumber="5491161874697" readablePhoneNuember="+54 9 11 6187-4697" />
 							<!-- <ContactData />
 							<SocialIconLinks
