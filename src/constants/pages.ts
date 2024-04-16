@@ -25,8 +25,8 @@ const cissyrMenu:Array<PageData> = [
 
 const mainMenu:Array<PageData> = [
   {
-    slug: '/nosotrxs',
-    title: 'Nosotrxs',
+    slug: '/nosotros',
+    title: 'Nosotros',
   },
   {
     slug: '/centro-de-salud-sexual-y-reproductiva',

@@ -16,7 +16,7 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 ---
 
 <ScrollContext>
-	<article class="profile sc-map-position">
+	<article class:list={ [ 'profile', 'sc-map-position', { 'profile--no-picture': !pictureUrl } ]}>
 		<div class="profile__content">
 			<header class="profile__header">
 				<h3 class="profile__name">{ name }</h3>
@@ -32,7 +32,7 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 			{ websiteUrl && <LinkButton style="link" text={ websiteTitle || websiteUrl } href={websiteUrl} external><IconShare /></LinkButton> }
 		</div>
 		<div class="profile__picture">
-			{ pictureUrl && <img src={ pictureUrl } alt={ name }> }
+			{ pictureUrl && <img src={ pictureUrl } alt={ name }/> }
 		</div>
 	</article>
 </ScrollContext>
@@ -43,13 +43,27 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 		flex-direction: row-reverse;
 		gap: 0;
 		margin-bottom: 2rem;
-
 		--sc-map-position-from: 4rem;
 		--sc-map-position-to: -2rem;
+
+		@media screen and (max-width: 767px) {
+			flex-direction: column-reverse;
+			position: relative;
+		}
 
 		&__picture {
 			width: 50%;
 			max-width: 260px;
+
+			@media screen and (max-width: 1199px) {
+				width: 32%;
+			}
+			@media screen and (max-width: 767px) {
+				margin: 0 1.5rem;
+				width: auto;
+				margin-bottom: -9rem;
+				max-width: none;
+			}
 
 			img {
 				display: block;
@@ -58,6 +72,21 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 				object-fit: cover;
 				margin: 3rem auto 5rem;
 				transform: translate3d(0,var(--sc-new-position),0);
+
+				@media screen and (max-width: 767px) {
+					margin: 0;
+					width: 50%;
+				}
+				@media screen and (max-width: 575px) {
+					margin: 0;
+					width: 80%;
+				}
+			}
+		}
+
+		&--no-picture &__picture {
+			@media screen and (max-width: 767px) {
+				display: none;
 			}
 		}
 
@@ -67,6 +96,20 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 			padding: 3rem;
 			margin-left: -3rem;
 			padding-left: 7rem;
+
+			@media screen and (max-width: 1199px) {
+				padding-left: 5rem;
+			}
+			@media screen and (max-width: 767px) {
+				margin: 0;
+				padding: 13rem 1.5rem 5rem;
+			}
+		}
+
+		&--no-picture &__content {
+			@media screen and (max-width: 767px) {
+				padding-top: 4rem;
+			}
 		}
 
 		&__header {
@@ -132,27 +175,5 @@ const { name, position, curriculum, pictureUrl, websiteUrl, websiteTitle } = Ast
 				}
 			}
 		}
-	}
-	@media screen and (max-width: 575px) {
-		.profile {
-			flex-direction: column-reverse;
-			
-			&__content {
-				margin: 1rem -0.5rem;
-				padding: 8rem 3.875rem 6rem 3.875rem;
-			}
-
-			&__picture  {
-				margin-bottom: -7rem;
-				margin-left: 3rem;
-				width: 40%;
-
-				img {
-					margin: 0;
-				}
-			
-			}
-		}
-			
 	}
 </style>

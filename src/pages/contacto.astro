@@ -65,6 +65,11 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		align-items: stretch;
 		gap: 0;
 
+		@media screen and (max-width: 1199px) {
+		flex-direction: column-reverse;
+		margin: 3rem 0;
+		}
+
 		&__map {
 			padding: 0 0 6rem;
 			display: flex;
@@ -73,12 +78,23 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			flex: 1;
 			max-width: 400px;
 
+			@media screen and (max-width: 1199px) {
+				max-width: unset;
+				flex-direction: unset;
+				height: 320px;
+				padding: 0 0 4rem;
+			}
+
 			iframe {
 				--sc-map-position-from: 0rem;
 				--sc-map-position-to: 6rem;
 				transform: translate3d(0,var(--sc-new-position),0);
 				flex: 1;
 				width: 100%;
+
+				@media screen and (max-width: 1199px) {
+					--sc-map-position-to: 4rem;
+				}
 			}
 		}
 		
@@ -94,19 +110,9 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			display: flex;
 			flex-direction: column;
 			gap: 3rem;
-		}
-	}
-	@media screen and (max-width: 575px) {
-		.contact-block {
-		flex-direction: column-reverse;
-		margin: 3rem 0;
 
-			&__map {
-				max-width: unset;
-						
-				iframe {
-				--sc-map-position-to: 4rem;
-			}	
+			@media screen and (max-width: 1199px) {
+				padding: 2.5rem 1.5rem 4rem 1.5rem;
 			}
 		}
 	}

@@ -112,6 +112,11 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		display: flex;
 		padding: 2rem 0 3rem;
 		gap: 3rem;
+
+		@media screen and (max-width: 575px){
+			flex-direction: column;
+		}
+
 		&__image {
 			flex: 1;
 		}
@@ -120,6 +125,13 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			display: flex;
 			flex-direction: column;
 			gap: 3rem;
+		}
+		
+	}
+
+	@media screen and (max-width: 575px){
+		.parallax-image{
+			display: none !important;
 		}
 	}
 
@@ -136,6 +148,10 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 		b {
 			display: block;
+		}
+		@media screen and (max-width: 575px){
+			flex-direction: column;
+			margin:  2rem 0;
 		}
 	}
 

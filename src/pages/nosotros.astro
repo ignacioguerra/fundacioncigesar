@@ -15,14 +15,14 @@ import Profile from '../components/blocks/Profile.astro';
 import WhatsappBubble from '../components/WhatsappBubble.astro';
 ---
 
-<Layout title="Nosotrxs – Fundación Cigesar">
+<Layout title="Nosotros – Fundación Cigesar">
 	<Header />
 	<main class="page">
 		<header>
 			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2022/09/WhatsApp-Image-2022-09-21-at-8.50.32-AM-1-e1663785435905.jpeg" size="small">
 				<WaveSvg />
 			</HeroImage>
-			<PageTitle title="Nosotrxs" />
+			<PageTitle title="Nosotros" />
 		</header>
 		<section class="light">
 			<div class="container">
@@ -60,46 +60,49 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		</section>
 		<section class="">
 			<div class="container">
-				<Profile 
-					name="Dr. Levy Damián Ezequiel"
-					position="Director científico"
-					curriculum={[
- 						"Medico Ginecólogo -Obstetra MN 126052 MP452209",
- 						"Miembro Titular de la Sociedad de Ginecología y Obstetricia de Buenos Aires (SOGBA)",
- 						"Medico Titular de guardia ginecología y obstetricia Hospital General de agudos T. Álvarez",
- 						"Miembro de equipo de Salud Sexual y Reproductiva del Hospital General de Agudos T. Álvarez",
- 						"Miembro Grupo Promotor de la Red de Acceso al aborto seguro Argentina (REDAAS)",
- 						"Miembro del equipo de la Dirección Provincial de Salud Sexual Y Reproductiva (DPSSYR) Ministerio de salud de la Provincia de buenos aires",
- 						"Consultor UNFPA para la Dirección Nacional de Salud Sexual Y Reproductiva (DNSSYR) Ministerio de salud de la nación",
- 						"Diplomado en Salud Sexual y Derechos Reproductivos(UNSAM)",
- 						"Director del Centro Integral de Salud Sexual y Reproductiva",
-					]}
-					pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.45.jpeg"
-					websiteUrl="https://linktr.ee/damianlevy79"
-					websiteTitle="Linktree"
-				></Profile>
+				<div class="profile-list">
 
-				<Profile 
-					name="Nemesio Alejandra Cristina"
-					position="Directora de Innovación Estratégica"
-					curriculum={[
- 						"Coordinadora ejecutiva",
-						"Coordinadora del área programática",
-						"Coordinadora del área de promoción y difusión",
-					]}
-					pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.16.jpeg"
-				></Profile>
-
-				<Profile 
-					name="Nemesio Silvia del Carmen"
-					position="Directora Ejecutiva"
-					curriculum={[
- 						"Médica Pediatra y Neonatologa  MN141822. MP453036",
-						"Miembro Titular de la Sociedad Argentina de Pediatría (SAP)",
-						"Miembro titular de la guardia de neonatología del Hospital José Penna",
-						"Maestría en Gestión y Administración Hospitalaria",
-					]}
-				></Profile>
+					<Profile 
+						name="Dr. Levy Damián Ezequiel"
+						position="Director científico"
+						curriculum={[
+							 "Medico Ginecólogo -Obstetra MN 126052 MP452209",
+							 "Miembro Titular de la Sociedad de Ginecología y Obstetricia de Buenos Aires (SOGBA)",
+							 "Medico Titular de guardia ginecología y obstetricia Hospital General de agudos T. Álvarez",
+							 "Miembro de equipo de Salud Sexual y Reproductiva del Hospital General de Agudos T. Álvarez",
+							 "Miembro Grupo Promotor de la Red de Acceso al aborto seguro Argentina (REDAAS)",
+							 "Miembro del equipo de la Dirección Provincial de Salud Sexual Y Reproductiva (DPSSYR) Ministerio de salud de la Provincia de buenos aires",
+							 "Consultor UNFPA para la Dirección Nacional de Salud Sexual Y Reproductiva (DNSSYR) Ministerio de salud de la nación",
+							 "Diplomado en Salud Sexual y Derechos Reproductivos(UNSAM)",
+							 "Director del Centro Integral de Salud Sexual y Reproductiva",
+						]}
+						pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.45.jpeg"
+						websiteUrl="https://linktr.ee/damianlevy79"
+						websiteTitle="Linktree"
+					></Profile>
+	
+					<Profile 
+						name="Nemesio Alejandra Cristina"
+						position="Directora de Innovación Estratégica"
+						curriculum={[
+							 "Coordinadora ejecutiva",
+							"Coordinadora del área programática",
+							"Coordinadora del área de promoción y difusión",
+						]}
+						pictureUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/WhatsApp-Image-2021-08-26-at-12.56.16.jpeg"
+					></Profile>
+	
+					<Profile 
+						name="Nemesio Silvia del Carmen"
+						position="Directora Ejecutiva"
+						curriculum={[
+							 "Médica Pediatra y Neonatologa  MN141822. MP453036",
+							"Miembro Titular de la Sociedad Argentina de Pediatría (SAP)",
+							"Miembro titular de la guardia de neonatología del Hospital José Penna",
+							"Maestría en Gestión y Administración Hospitalaria",
+						]}
+					></Profile>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -116,8 +119,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	dfn {
 		font-style: normal;
 	}
-
-	
 
 	.card-column {
 		max-width: 860px;
@@ -143,13 +144,18 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		}
 	}
 
+	.profile-list {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
 	section {
 		padding: 4rem 0;
 		background-color: var(--gray-100);
 
 		&.light {
 			background-color: var(--white);
-			/* padding: 1.5rem 0; */
 		}
 
 		&.no-gap {
@@ -159,15 +165,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		&.overlap {
 			margin-top: -200px;
 			padding-top: 200px;
-		}
-
-		@media screen and (max-width: 1399px) {
-		}
-		@media screen and (max-width: 1199px) {
-		}
-		@media screen and (max-width: 767px) {
-		}
-		@media screen and (max-width: 575px) {
 		}
 	}
 </style>

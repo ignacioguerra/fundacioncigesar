@@ -22,7 +22,6 @@ const hasText = !!text
 	.link-button {
 		position: relative;
 		display: flex;
-		width: fit-content;
 		align-items: center;
 		gap: 1rem;
 		padding: 0.75rem 1.5rem;
@@ -38,6 +37,10 @@ const hasText = !!text
 		overflow: hidden;
 
 		transition: border-color 100ms ease-out, background-color 100ms ease-out;
+
+		@media screen and (max-width:767px ) and (min-width: 576px) {
+			padding: 0.75rem 1.125rem
+		}
 
 		* {
 			position: relative;
@@ -109,11 +112,9 @@ const hasText = !!text
 				background-color: var(--white);
 			}
 		}
-
 		&--without-text {
 			padding: 0.75rem;
 		}		
-
 		&__text {
 			font-size: 1rem;
 
@@ -122,9 +123,5 @@ const hasText = !!text
 			}
 		}
 	}
-	@media screen and (max-width: 575px){
-		.link-button {
-			padding: 0.675rem 1.125rem;
-		}
-	}
+	
 </style>
