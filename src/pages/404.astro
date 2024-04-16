@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsappBubble from '../components/WhatsappBubble.astro';
+---
+
+
+<Layout title="400 – Página no encontrada">
+	<Header />
+    <main class="page">
+        <section class="light -no-gap">
+            <div class="container">
+                <div class="message-404">
+                    <h2 class="message-404__title">404</h2>
+                    <p>No hemos podido encontrar la página que buscabas</p>
+                    <a href="/">Pagina de inicio Fundación Cigesar</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <Footer />
+	<WhatsappBubble phoneNumber="5491161874697" />
+</Layout>       
+
+
+<style>
+    .message-404 {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 440px;
+
+        &__title{
+            font-size: 5rem;
+            margin: .5rem 0;
+        }
+        p{
+            margin: 5px 0;
+        }
+    }
+
+</style>
