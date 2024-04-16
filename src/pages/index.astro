@@ -18,20 +18,11 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	<main>
 		<section class="no-gap">
 			<HeroImage sizeMobile='small'>
-				<!-- <div class="container">
-
-					<YoutubeVideoLauncher videoId="BzQ1tPZrXVg" mainText="Polo comunitario" description="Ver video" />
-				</div> -->
 				<div class="video__container">
 					<YoutubeBackground videoId="E01K6Ub7GSQ" width={560} height={315} title="Presentación CIGESAR" />
 				</div>
 				<WaveSvg />
 			</HeroImage>
-			<!-- <div class="youtube-video-modal">
-				<div class="youtube-video-modal__container">
-					<YoutubeBackground videoId="BzQ1tPZrXVg" poster="home/poster-polo.png"  width={560} height={315} />
-				</div>
-			</div> -->
 		</section>
 		<section class="light text-with-iamge ---overlap">
 			<div class="container">
@@ -41,21 +32,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 						<p>Nuestra Fundación tiene una amplia experiencia en el desarrollo de estrategias pedagógicas e intervenciones interdisciplinarias, desde una perspectiva de género y de cuidado. Desarrollamos proyectos junto con organizaciones públicas o privadas capacitando a educadores, educadoras y promotoras comunitarias en educación sexual integral y salud sexual.</p>
 					</div>
 				</TextBox>
-				<!-- <div class="text-with-iamge__inner">
-					<div>
-						<TextBox>
-							<div class="text-with-iamge__text">
-								<p>Nuestro plan estratégico tiene como prioridad el abordaje de los derechos sexuales y (no) reproductivos de las personas, abordándolos desde todas sus dimensiones, de manera integral con el objetivo de lograr el pleno acceso de las mujeres y diversidades sexuales a sus decisiones reproductivas, para que fundamentalmente sean libres de elección en la maternidad, libres de buscar una vida sexual sin temores a embarazos no intencionales y a infecciones de transmisión sexual (ITS).</p>
-								<p>Nuestra Fundación tiene una amplia experiencia en el desarrollo de estrategias pedagógicas e intervenciones interdisciplinarias, desde una perspectiva de género y de cuidado. Desarrollamos proyectos junto con organizaciones públicas o privadas capacitando a educadores, educadoras y promotoras comunitarias en educación sexual integral y salud sexual.</p>
-							</div>
-						</TextBox>
-					</div>
-					<div>
-						<ScrollContext>
-							<img src="favicon.svg" alt="" class="sc-map-position" />
-						</ScrollContext>
-					</div>
-				</div> -->
 			</div>
 		</section>
 		<section class="">
@@ -111,7 +87,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 
 		&.light {
 			background-color: var(--white);
-			/* padding: 1.5rem 0; */
 		}
 
 		&.no-gap {
@@ -142,19 +117,15 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		left: 0;
 		z-index: 50;
 		background-color: rgba(0,0,0,.8);
-		/* backdrop-filter: blur(6px); */
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding-top: var(--header-height);
 
-		/* border-top: 80px solid var(--gray-900); */
-		/* border-bottom: 80px solid var(--gray-900); */
 
 		&__container {
 			flex: 1; 
 			max-width: 1200px;
-			/* max-height: 90vh; */
 			box-shadow: 0 8px 16px rgba(0,0,0,.65);
 			overflow: hidden;
 		}
@@ -187,17 +158,10 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	.text-with-iamge {
 		overflow: hidden;
 		img {
-			/* position: absolute; */
 			z-index: 1;
-			/* opacity: 0.25; */
 			width: auto;
 			display: block;
 			margin: 0 auto;
-			/* height: calc(100% + 200px); */
-
-			/* --to-y: 20px;
-			--from-y: 150px;
-			--translate-y: calc(var(--from-y) + var(--sc-position) * (var(--to-y) - var(--from-y))); */
 
 			--sc-map-position-from: 150px;
 			--sc-map-position-to: 20px;
@@ -205,10 +169,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		}
 
 		&__text {
-			/* position: relative; */
 			z-index: 2;
-			/* transform: translateX(5rem); */
-			/* background: white; */
 		}
 
 		&__inner {

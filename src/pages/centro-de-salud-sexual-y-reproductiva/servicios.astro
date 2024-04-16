@@ -43,10 +43,6 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		<section class="light -no-gap">
 			<div class="container">
 				<div class="services">
-					<!-- <a href="/ive">
-					</a>
-					<a href="/centro-de-salud-sexual-y-reproductiva/servicios/vasectomia">
-					</a> -->
 					<h2 class="services__tab" id="ive">IVE</h2>
 					<div class="services__tab-content">
 						<div class="services__tab-content__accordion">
@@ -195,13 +191,11 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 	.services {
 		display: grid;
-		/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: 2;
 		grid-template-areas: 
 			"tab-1 tab-2 tab-3 tab-4 tab-5"
 			"tab-content tab-content tab-content tab-content tab-content";
-		/* gap: 0; */
 		gap: 0.75rem;
 		align-items: start;
 
@@ -213,25 +207,13 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		}
 
 		&__tab {
-			flex: 1;
-			/* margin: 0 8px; */
-
-			/* &:first-child {
-				margin-left: 1.75rem;
-			}
-
-			&:last-child {
-				margin-right: 1.75rem;
-			} */			
-
+			flex: 1;		
 			padding: 1.25rem 1.5rem;
-			/* height: 300px; */
 			background-color: var(--white);
 			border-radius: 0;
 			border-bottom-left-radius: 0;
 			border-bottom-right-radius: 0;
 			border:1px solid var(--page-primary-color);
-			/* margin-bottom: 1rem; */
 			position: relative;
 			z-index: 2;
 			margin: 0;
@@ -247,11 +229,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 				background-color: var(--page-primary-color);
 				color: var(--page-contrasting-color);
 				font-weight: var(--font-weight-medium);
-				
-				/* transform: translateY(1.5rem); */
-
-					/* font-size: 1.5rem; */
-					cursor: auto;
+				cursor: auto;
 			}
 
 			display: flex;
@@ -260,12 +238,8 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 			justify-content: center;
 			gap: 0.5rem;
 			line-height: 1;
-
-		/* &__title { */
 			font-size: 1.25rem;
 			font-weight: var(--font-weight-light);
-			/* margin: 0; */
-		/* } */
 
 			@media screen and (max-width: 767px) { 
 				align-items: flex-start;
@@ -304,8 +278,6 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 			&__image {
 				flex-basis: 360px;
-				/* transform: translateY(2rem); */
-				/* flex: 1; */
 				@media screen and (max-width: 1199px) and (min-width: 576px){
 					flex-basis: 260px;
 				}
@@ -316,9 +288,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 
 			&__text {
 				flex: 1;
-				/* padding: 4rem 4rem 4rem; */
 			}
-			/* box-shadow: 0 4px 24px -8px rgba(0,0,0,.15); */
 
 			opacity: 0;
 
@@ -360,15 +330,11 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 		&__text {
 			flex: 1;
 			position: relative;
-			/* display: flex;
-			flex-direction: column;
-			justify-content: flex-start; */
 			position: relative;
 			h2 {
 				font-size: 2.75rem;
 				line-height: 1.125;
 				text-wrap: balance;
-				/* text-align: right; */
 				margin: 6rem 0 0;
 			}
 

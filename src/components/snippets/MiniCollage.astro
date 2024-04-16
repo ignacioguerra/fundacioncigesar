@@ -34,7 +34,6 @@ const { bigImageUrl, smallImageUrl, bigImageAlt='', smallImageAlt='', invert=fal
 	.mini-collage {
 		display: flex;
 		align-items: flex-end;
-		/* width: 680px; */
 
 		--sc-map-position-from: -2rem;
 		--sc-map-position-to: 2rem;
@@ -51,8 +50,6 @@ const { bigImageUrl, smallImageUrl, bigImageAlt='', smallImageAlt='', invert=fal
 			&:last-child {
 				flex: 4;
 				margin-left: -8rem;
-				/* border-left: 0.5rem solid var(--gray-100);
-				border-top: 0.5rem solid var(--gray-100); */
 				position: relative;
 				z-index: 1;
 
@@ -70,9 +67,7 @@ const { bigImageUrl, smallImageUrl, bigImageAlt='', smallImageAlt='', invert=fal
 			&:first-child {
 				clip-path: polygon(0 0, 100% 0, 100% 100%, 8.5rem 100%, 8.5rem calc(42.5% + var(--sc-new-position)), 0 calc(42.5% + var(--sc-new-position)));
 				
-				
-				
-				
+								
 			}
 			&:last-child {
 				margin-left: 0;

@@ -60,9 +60,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 							</TextCard>
 						</div>
 					</ScrollContext>
-				</div>
-				
-				
+				</div>							
 			</div>
 		</section>
 		<section class="color">
@@ -116,8 +114,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			<div class="container">
 				<div class="card-comparative-columns">
 					<div class="card-column">
-						<!-- <ScrollContext>		
-							<div class="card-column__element sc-activable"> -->
 								<TextCard title="Tratamiento Farmacológico" small>
 									<p>Hasta 12.6 semanas</p>
 									<h3>Incluye</h3>
@@ -133,12 +129,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 										<li>Tratamiento ambulatorio</li>
 									</ul>
 								</TextCard>
-							<!-- </div> -->
-						<!-- </ScrollContext> -->
-					<!-- </div>
-					<div class="card-column">
-						<ScrollContext>		
-							<div class="card-column__element sc-activable"> -->
 								<TextCard title="Tratamiento Ameu" small>
 									<p>Hasta 12.6 semanas</p>
 									<h3>Incluye</h3>
@@ -152,34 +142,12 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 									<ul>
 										<li>Tratamiento ambulatorio</li>
 									</ul>
-									<!-- <LinkButton text="¿Sabés qué es AMEU?" href={'U1qeR7mzx6I'} external><IconYoutube /></LinkButton> -->
-									<!-- <YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} /> -->
-								</TextCard>
-							<!-- </div> -->
+									</TextCard>
 						</ScrollContext>
 					</div>
 				</div>
-				<!-- <div class="youtube-video-modal">
-					<div class="youtube-video-modal__container">
-						<YoutubePlayer videoId="U1qeR7mzx6I" poster="/cissyr/servicios/ive/video-2.jpg"  width={560} height={315} />
-					</div>
-				</div> -->
 			</div>
 			<div class="container">
-				<!-- <div class="--card-column">
-					<ScrollContext>		
-						<div class="--card-column__element sc-activable">
-							<TextCard title="AMEU">
-								<YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} />
-							</TextCard>
-						</div>
-					</ScrollContext>
-				</div> -->
-				<!-- <div class="youtube-video-modal">
-					<div class="youtube-video-modal__container">
-						<YoutubePlayer videoId="U1qeR7mzx6I" poster="/cissyr/servicios/ive/video-2.jpg"  width={560} height={315} />
-					</div>
-				</div> -->
 			</div>
 		</section>
 
@@ -234,12 +202,8 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	}
 	
 	.card-comparative-columns {
-		/* display: flex;
-		gap: 45px; */
 
 		.card-column {
-			/* flex: 1; */
-			/* align-self: stretch; */
 			display: flex;
 			gap: 25px;
 			flex-direction: row;
@@ -276,8 +240,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 				text-wrap: balance;
 				line-height: 1.25;
 				margin: 0;
-				/* position: sticky;
-				top: 10rem; */
 				--sc-map-position-from: 6rem;
 				--sc-map-position-to: 0rem;
 				transform: translate3d(0,var(--sc-new-position),0);
@@ -351,7 +313,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			&__title {
 				width: 9rem;
 				font-size: 1.5rem;
-				/* text-align: right; */
 				text-transform: lowercase;
 				position: relative;
 				margin: 0;
@@ -417,15 +378,11 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		&__text {
 			flex: 1;
 			position: relative;
-			/* display: flex;
-			flex-direction: column;
-			justify-content: flex-start; */
 			position: relative;
 			h2 {
 				font-size: 2.75rem;
 				line-height: 1.125;
 				text-wrap: balance;
-				/* text-align: right; */
 				margin: 6rem 0 0;
 			}
 
@@ -443,7 +400,6 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 
 		&.light {
 			background-color: var(--white);
-			/* padding: 1.5rem 0; */
 		}
 
 		&.color {
