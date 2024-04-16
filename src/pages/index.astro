@@ -17,12 +17,14 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	<Header />
 	<main>
 		<section class="no-gap">
-			<HeroImage>
+			<HeroImage sizeMobile='small'>
 				<!-- <div class="container">
 
 					<YoutubeVideoLauncher videoId="BzQ1tPZrXVg" mainText="Polo comunitario" description="Ver video" />
 				</div> -->
-				<YoutubeBackground videoId="E01K6Ub7GSQ" width={560} height={315} title="Presentación CIGESAR" />
+				<div class="video__container">
+					<YoutubeBackground videoId="E01K6Ub7GSQ" width={560} height={315} title="Presentación CIGESAR" />
+				</div>
 				<WaveSvg />
 			</HeroImage>
 			<!-- <div class="youtube-video-modal">
@@ -155,6 +157,30 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			/* max-height: 90vh; */
 			box-shadow: 0 8px 16px rgba(0,0,0,.65);
 			overflow: hidden;
+		}
+	}
+
+	.video__container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		:global(.yt-embed) {
+			width: 100vw;
+			aspect-ratio: 16/9;
+			@media screen and (max-aspect-ratio: 1.57) {
+				--video-height: calc(100vh - var(--header-height));
+				height: var(--video-height);
+				width: calc(1.77 * var(--video-height));
+			}
+			@media screen and (max-width: 575px) {
+				--video-height: calc(280px + 16vh);
+			}
 		}
 	}
 

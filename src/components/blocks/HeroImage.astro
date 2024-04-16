@@ -4,12 +4,13 @@ import ScrollContext from '../snippets/ScrollContext.astro';
 interface Props {
 	src?: string;
 	size?: 'full'|'big'|'medium'|'small';
+	sizeMobile?: 'full'|'big'|'medium'|'small';
 }
 
-const { src, size = 'big' } = Astro.props;
+const { src, size = 'big', sizeMobile } = Astro.props;
 ---
 
-<div class:list={ [ 'hero-image', `hero-image--${size}` ] }>
+<div class:list={ [ 'hero-image', `hero-image--${size}`, { [`hero-image--mobile--${sizeMobile}`]: !!sizeMobile } ] }>
 	<ScrollContext>
 		<svg class="hero-image__placeholder" viewBox="0 0 1000 1000"></svg>
 		{src && <img  class="hero-image__image sc-map-position" src={src} alt="">	}
@@ -42,6 +43,21 @@ const { src, size = 'big' } = Astro.props;
 		}
 		&--small &__placeholder {
 			height: 280px;
+		}
+
+		@media screen and (max-width: 575px) {
+			&--mobile--full &__placeholder {
+				height: calc(100vh - var(--header-height));
+			}
+			&--mobile--big &__placeholder {
+				height: calc(85vh - var(--header-height));
+			}
+			&--mobile--medium &__placeholder {
+				height: calc(60vh - var(--header-height));
+			}
+			&--mobile--small &__placeholder {
+				height: 280px;
+			}
 		}
 
 		&__image {
