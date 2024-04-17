@@ -1,23 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import HighlightText from '../../components/snippets/HighlightText.astro';
 import WaveSvg from '../../components/graphics/WaveSvg.astro';
 import HeroImage from '../../components/blocks/HeroImage.astro';
-import TextBox from '../../components/snippets/TextBox.astro';
 import ScrollContext from '../../components/snippets/ScrollContext.astro';
-import GallerySlider from '../../components/blocks/GallerySlider.astro';
 import PageTitle from '../../components/blocks/PageTitle.astro';
-import PressArticle from '../../components/snippets/PressArticle.astro';
-import Profile from '../../components/blocks/Profile.astro';
 import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
-import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
-import TextCard from '../../components/snippets/TextCard.astro';
-import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
 import IconGallery from '../../components/icons/IconGallery.astro';
-import IconInfo from '../../components/icons/IconInfo.astro';
 import IconQuote from '../../components/icons/IconQuote.astro';
 import LinkButton from '../../components/snippets/LinkButton.astro';
 import MiniCollage from '../../components/snippets/MiniCollage.astro';
@@ -31,7 +21,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 	<Header />
 	<main class="page">
 		<header>
-			<HeroImage src="https://firebasestorage.googleapis.com/v0/b/fundacion-cigesar.appspot.com/o/centro-de-salud-sexual-y-reproductiva%2Fheader.jpg?alt=media&token=5698b213-bb11-4968-88ad-4ba599fe0df7" size="small">
+			<HeroImage src="/img/centro-de-salud-sexual-y-reproductiva/header.jpg" size="small">
 				<WaveSvg />
 			</HeroImage>
 			<PageTitle title="Centro Integral de Salud Sexual y Reproductiva" />
@@ -43,7 +33,7 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 			<div class="container">
 				<div class="youtube-video-modal">
 					<div class="youtube-video-modal__container">
-						<YoutubePlayer videoId="Hhqbl27MgR8" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_35-scaled.jpg"  width={560} height={315} />
+						<YoutubePlayer videoId="Hhqbl27MgR8" poster="/img/centro-de-salud-sexual-y-reproductiva/video-poster.jpg"  width={560} height={315} />
 					</div>
 				</div>
 			</div>
@@ -64,14 +54,14 @@ import WhatsappBubble from '../../components/WhatsappBubble.astro';
 				<div class="image-with-text">
 					<div class="image-with-text__image">
 						<MiniCollage
-							bigImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5763-1024x683.jpg"
-							smallImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5730-1024x683.jpg" 
+							bigImageUrl="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones-01.jpg"
+							smallImageUrl="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones-02.jpg" 
 						/>
 					</div>
 					<div class="image-with-text__text">
 						<h2>Capacitaciones y Campañas de salud</h2>
 						<div class="image-with-text__text__link">
-							<LinkButton style="link" text="Ver galería" href="/centro-de-salud-sexual-y-reproductiva/capacitaciones/"><IconGallery /></LinkButton>
+							<LinkButton style="link" text="Ver galería" href="/centro-de-salud-sexual-y-reproductiva/capacitaciones"><IconGallery /></LinkButton>
 						</div>
 					</div>
 				</div>

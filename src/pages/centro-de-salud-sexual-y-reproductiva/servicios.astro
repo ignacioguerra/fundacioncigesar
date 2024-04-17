@@ -1,24 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import HighlightText from '../../components/snippets/HighlightText.astro';
 import WaveSvg from '../../components/graphics/WaveSvg.astro';
 import HeroImage from '../../components/blocks/HeroImage.astro';
 import TextBox from '../../components/snippets/TextBox.astro';
 import ScrollContext from '../../components/snippets/ScrollContext.astro';
-import GallerySlider from '../../components/blocks/GallerySlider.astro';
 import PageTitle from '../../components/blocks/PageTitle.astro';
-import PressArticle from '../../components/snippets/PressArticle.astro';
-import Profile from '../../components/blocks/Profile.astro';
-import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
 import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
-import TextCard from '../../components/snippets/TextCard.astro';
-import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
-import IconGallery from '../../components/icons/IconGallery.astro';
 import IconInfo from '../../components/icons/IconInfo.astro';
-import IconQuote from '../../components/icons/IconQuote.astro';
 import LinkButton from '../../components/snippets/LinkButton.astro';
 import InnerMenu from '../../components/InnerMenu.astro';
 import { cissyrMenu, mainMenu } from "../../constants/pages";
@@ -31,7 +21,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 	<Header />
 	<main class="page">
 		<header>
-			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_3-scaled.jpg" size="small">
+			<HeroImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/header.jpg" size="small">
 				<WaveSvg />
 			</HeroImage>
 			<PageTitle title="Servicios" backTo={parentPage} />
@@ -49,7 +39,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							<ScrollContext>
 								<div class="services__tab-content__inner">
 									<div class="services__tab-content__image">
-										<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5788-scaled.jpg" alt="" width={260} height={346} />
+										<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/ive.jpg" alt="" width={260} height={346} />
 									</div>
 									<div class="services__tab-content__text">
 										<TextBox>
@@ -67,13 +57,13 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							</ScrollContext>
 						</div>
 					</div>
-					<h2 class="services__tab" id="vasectomia">Vasectomia</h2>
+					<h2 class="services__tab" id="vasectomia">Vasectomía</h2>
 					<div class="services__tab-content">
 						<div class="services__tab-content__accordion">
 							<ScrollContext>
 								<div class="services__tab-content__inner">
 									<div class="services__tab-content__image">
-										<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/CENTROINTEGRAL_BAJA_28-scaled.jpg" alt="" width={260} height={346} />
+										<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/vasectomia.jpg" alt="" width={260} height={346} />
 									</div>
 									<div class="services__tab-content__text">
 										<TextBox>
@@ -85,13 +75,13 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							</ScrollContext>
 						</div>
 					</div>
-					<h2 class="services__tab" id="ginecologia">Ginecologia</h2>
+					<h2 class="services__tab" id="ginecologia">Ginecología</h2>
 					<div class="services__tab-content">
 						<div class="services__tab-content__accordion">
 							<ScrollContext>
 								<div class="services__tab-content__inner">
 									<div class="services__tab-content__image">
-										<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_3-scaled.jpg" alt="" width={260} height={346} />
+										<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/ginecologia.jpg" alt="" width={260} height={346} />
 									</div>
 									<div class="services__tab-content__text">
 										<TextBox>
@@ -117,7 +107,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							<ScrollContext>
 								<div class="services__tab-content__inner">
 									<div class="services__tab-content__image">
-										<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_4-scaled.jpg" alt="" width={260} height={346} />
+										<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/obstetricia.jpg" alt="" width={260} height={346} />
 									</div>
 									<div class="services__tab-content__text">
 										<TextBox>
@@ -139,7 +129,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 							<ScrollContext>
 								<div class="services__tab-content__inner">
 									<div class="services__tab-content__image">
-										<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/CENTROINTEGRAL_BAJA_41-scaled.jpg" alt="" width={260} height={346} />
+										<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/servicios/psicologia.jpg" alt="" width={260} height={346} />
 									</div>
 									<div class="services__tab-content__text">
 										<TextBox>

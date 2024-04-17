@@ -1,25 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import HighlightText from '../../components/snippets/HighlightText.astro';
 import WaveSvg from '../../components/graphics/WaveSvg.astro';
 import HeroImage from '../../components/blocks/HeroImage.astro';
 import TextBox from '../../components/snippets/TextBox.astro';
-import ScrollContext from '../../components/snippets/ScrollContext.astro';
 import GallerySlider from '../../components/blocks/GallerySlider.astro';
 import PageTitle from '../../components/blocks/PageTitle.astro';
-import PressArticle from '../../components/snippets/PressArticle.astro';
-import Profile from '../../components/blocks/Profile.astro';
-import YoutubePlayer from '../../components/blocks/YoutubePlayer.astro';
 import ParallaxImage from '../../components/snippets/ParallaxImage.astro';
-import TextCard from '../../components/snippets/TextCard.astro';
-import YoutubeVideoLauncher from '../../components/snippets/YoutubeVideoLauncher.astro';
-import IconGallery from '../../components/icons/IconGallery.astro';
-import IconInfo from '../../components/icons/IconInfo.astro';
-import IconQuote from '../../components/icons/IconQuote.astro';
-import LinkButton from '../../components/snippets/LinkButton.astro';
 import MiniCollage from '../../components/snippets/MiniCollage.astro';
 import InnerMenu from '../../components/InnerMenu.astro';
 import { cissyrMenu, mainMenu } from "../../constants/pages";
@@ -32,7 +20,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 	<Header />
 	<main class="page">
 		<header>
-			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5730-1024x683.jpg" size="small">
+			<HeroImage src="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/header.jpg" size="small">
 				<WaveSvg />
 			</HeroImage>
 			<PageTitle title="Capacitaciones" backTo={parentPage} />
@@ -48,12 +36,12 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 						<TextBox>
 								<p>Talleres ESI (educación sexual integral) para instituciones educativas con la finalidad de empoderar a los agentes educativos en ESI, y de esta manera que puedan brindar conocimientos pertinentes, precisos, confiables científicamente actualizados y socialmente significativos.</p>
 						</TextBox>
-						<ParallaxImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/Screenshot_20210823-220606-e1630431400593-768x509.jpg" width={600} height={480} />
+						<ParallaxImage src="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/talleres-01.jpg" width={600} height={480} />
 					</div>
 					<div class="image-with-text__image">
 						<MiniCollage
-							smallImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/Screenshot_20210823-221246-e1630423023353-768x514.jpg"
-							bigImageUrl="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/Screenshot_20210823-221302-e1630431136323-768x514.png"
+							smallImageUrl="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/talleres-03.jpg"
+							bigImageUrl="/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/talleres-02.png"
 							
 						/>
 					</div>
@@ -68,21 +56,21 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 				<GallerySlider 
 					title="Campañas de salud"
 					images={[
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5763-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5865-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5867-1-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/20191019_173204-scaled-e1630430642900-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5780-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5756-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5757-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/20191019_185153-scaled-e1630430695914-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/gte-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5785-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5745-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5788-1-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5735-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5696-1024x683.jpg', alt: '' },
-						{ src: 'https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5730-1024x683.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-01.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-02.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-03.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-04.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-05.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-06.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-07.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-08.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-09.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-10.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-11.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-12.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-13.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-14.jpg', alt: '' },
+						{ src: '/img/centro-de-salud-sexual-y-reproductiva/capacitaciones/campanas-15.jpg', alt: '' },
 					]}
 					
 				/>

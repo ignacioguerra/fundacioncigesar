@@ -8,10 +8,6 @@ import TextBox from '../../../components/snippets/TextBox.astro';
 import ScrollContext from '../../../components/snippets/ScrollContext.astro';
 import PageTitle from '../../../components/blocks/PageTitle.astro';
 import ContactForm from '../../../components/ContactForm.astro';
-import SocialIconLinks from '../../../components/SocialIconLinks.astro';
-import ContactData from '../../../components/ContactData.astro';
-import LinkButton from '../../../components/snippets/LinkButton.astro';
-import IconWhatsapp from '../../../components/icons/IconWhatsapp.astro';
 import WhatsappLink from '../../../components/WhatsappLink.astro';
 import InnerMenu from '../../../components/InnerMenu.astro';
 import { cissyrMenu, mainMenu } from "../../../constants/pages";
@@ -25,7 +21,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 	<Header />
 	<main class="page" lang="pr">
 		<header>
-			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5693-scaled-e1630431532611.jpg" size="small">
+			<HeroImage src="/img/centro-de-salud-sexual-y-reproductiva/contacto/header.jpg" size="small">
 				<WaveSvg />
 			</HeroImage>
 			<PageTitle title="Contato" backTo={parentPage} />
@@ -41,7 +37,7 @@ const parentPage = mainMenu.find((page) => page.submenu === cissyrMenu)
 				<ScrollContext>
 					<div class="contact-block">
 						<div class="contact-block__map">
-							<img class="sc-map-position" src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5693-scaled-e1663847661632-768x1152.jpg" alt="">						
+							<img class="sc-map-position" src="/img/centro-de-salud-sexual-y-reproductiva/contacto/contacto.jpg" alt="">						
 						</div>
 						<div class="contact-block__form">
 							<ContactForm

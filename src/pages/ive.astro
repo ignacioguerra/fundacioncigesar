@@ -1,28 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import HighlightText from '../components/snippets/HighlightText.astro';
 import WaveSvg from '../components/graphics/WaveSvg.astro';
 import HeroImage from '../components/blocks/HeroImage.astro';
-import TextBox from '../components/snippets/TextBox.astro';
 import ScrollContext from '../components/snippets/ScrollContext.astro';
-import GallerySlider from '../components/blocks/GallerySlider.astro';
 import PageTitle from '../components/blocks/PageTitle.astro';
-import PressArticle from '../components/snippets/PressArticle.astro';
-import Profile from '../components/blocks/Profile.astro';
 import YoutubePlayer from '../components/blocks/YoutubePlayer.astro';
-import ParallaxImage from '../components/snippets/ParallaxImage.astro';
 import TextCard from '../components/snippets/TextCard.astro';
-import YoutubeVideoLauncher from '../components/snippets/YoutubeVideoLauncher.astro';
-import IconGallery from '../components/icons/IconGallery.astro';
-import IconInfo from '../components/icons/IconInfo.astro';
-import IconQuote from '../components/icons/IconQuote.astro';
-import LinkButton from '../components/snippets/LinkButton.astro';
-import MiniCollage from '../components/snippets/MiniCollage.astro';
-import Tab from '../components/snippets/Tab.astro';
-import IconYoutube from '../components/icons/IconYoutube.astro';
 import WhatsappBubble from '../components/WhatsappBubble.astro';
 ---
 
@@ -30,7 +15,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 	<Header />
 	<main class="page">
 		<header>
-			<HeroImage src="https://fundacioncigesar.org.ar/wp-content/uploads/2021/08/IMG_5788-scaled.jpg" size="small">
+			<HeroImage src="/img/ive/header.jpg" size="small">
 				<WaveSvg />
 			</HeroImage>
 			<PageTitle title="Interrupción Voluntaria del Embarazo" />
@@ -39,7 +24,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 			<div class="container">
 				<div class="youtube-video-modal">
 					<div class="youtube-video-modal__container">
-						<YoutubePlayer videoId="U1qeR7mzx6I" poster="https://firebasestorage.googleapis.com/v0/b/fundacion-cigesar.appspot.com/o/ive%2Fvideo-ive.jpg?alt=media&token=43f4a6c1-773d-43b0-a0d7-387f6ca49811"  width={560} height={315} />
+						<YoutubePlayer videoId="U1qeR7mzx6I" poster="/img/ive/video-ive.jpg" width={560} height={315} />
 					</div>
 				</div>
 			</div>
@@ -154,7 +139,7 @@ import WhatsappBubble from '../components/WhatsappBubble.astro';
 		<section class="light -no-gap xs-top-padding-off">
 			<div class="container">
 				<h2>¿Qué es <dfn><abbr title="Aspiración Manual Endo Uterina">AMEU</abbr></dfn>?</h2>
-				<YoutubePlayer videoId="G_SCiM0y1Qw" poster="https://fundacioncigesar.org.ar/wp-content/uploads/2021/09/ameu.jpg"  width={560} height={315} />
+				<YoutubePlayer videoId="G_SCiM0y1Qw" poster="/img/ive/video-ameu.jpg"  width={560} height={315} />
 			</div>
 		</section>
 
