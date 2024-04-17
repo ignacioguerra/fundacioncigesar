@@ -7,14 +7,14 @@ interface Props {
 }
 
 const { menu } = Astro.props;
-
+const pathname = new URL(Astro.request.url).pathname;
 ---
 <div class="inner-menu">
 	<ul>
 		{ 
 			menu.map((menuItem) => {
 				const slug = menuItem.slug || ''
-				const buttonStyle = Astro.url.pathname === slug ? 'page-color' : 'light'
+				const buttonStyle = pathname.startsWith(slug) ? 'page-color' : 'light'
 				return <li><LinkButton style={buttonStyle} text={menuItem.title} href={slug}></LinkButton></li>
 			}) 
 		}
