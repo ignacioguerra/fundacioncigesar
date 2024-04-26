@@ -25,6 +25,6 @@ const { phoneNumber, readablePhoneNuember } = Astro.props;
 		}
 	}
 </style>
-<a class="whatsapp-link" href={ `https://wa.me/${phoneNumber}` }>
+<a class="whatsapp-link" href={ `https://wa.me/${phoneNumber}` } target="_blank">
 	<IconWhatsapp /> <span>{readablePhoneNuember || phoneNumber}</span>
 </a>
